@@ -1,0 +1,26 @@
+.ProductCard {
+  margin-bottom: 3rem;
+}
+.ProductCard .container{
+margin: 0 auto;
+}
+.ProductCard .name {
+  font-size: 1.3rem;
+  padding-bottom: .5rem;
+}
+.ProductCard .price {
+  color: rgb(234, 93, 42);
+  font-size: 1rem;
+}
+.ProductCard .name {
+  font-size: 1rem;
+}
+.ProductCard picture {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.ProductCard picture img {
+  width: 100%;
+  height: 200px;
+}

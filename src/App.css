@@ -1,0 +1,23 @@
+
+#root, *, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+header {
+  min-width: 90%;
+  height: 5rem;
+}
+main {
+  width: 90%;
+  margin: 0 auto;
+}
+footer {
+  bottom: 0;
+  width: 90%;
+}

@@ -1,0 +1,156 @@
+/* slider */
+.slider {
+  margin: 1rem auto 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.slides {
+  width: 500%;
+  height: 550px;
+  display: flex;
+}
+.slides input {
+  display: none;
+}
+.slide {
+  width: 20%;
+  transition: 2s;
+}
+.slide img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position:50% 50%; 
+}
+.navigation-manual {
+  position: absolute;
+  width: 100%;
+  margin-top: -50px;
+  display: flex;
+  justify-content: center;
+}
+.slider-text {
+  position:absolute;
+  width: 100%;
+  top: 15rem;
+  left: 45rem;
+  color: rgb(254, 254, 254);
+  z-index: 1;
+  font-family: Lora;
+  font-size: 1em;
+}
+.manual-btn {
+  border: 2px solid rgb(237, 75, 11);
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 1s;
+}
+.manual-btn:not(:last-child) {
+  margin-right: 40px;
+}
+.manual-btn:hover {
+  background: rgb(237, 75, 11);
+}
+#radio1:checked ~.first{
+  margin-left: 0;
+}
+#radio2:checked ~.first{
+  margin-left: -20%;
+}
+#radio3:checked ~.first{
+  margin-left: -40%;
+}
+#radio4:checked ~.first{
+  margin-left: -60%;
+}
+/*css for automatic navigator */
+.navigation-auto {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 860px;
+  top: -360px;/*button position */
+}
+.navigation-auto div {
+  border: 2px solid rgb(237, 75, 11);
+  padding: 5px;
+  border-radius: 50%;
+  transition: 1s;
+}
+.navigation-auto div:not(:last-child) {
+  margin-right: 40px;
+}
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+  background: rgb(237, 75, 11);
+}
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+  background: rgb(237, 75, 11);
+}
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+  background: rgb(237, 75, 11);
+}
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+  background: rgb(237, 75, 11);
+}
+
+/* home-contents */
+.home-contents {
+  margin: 0 auto;
+}
+.new-products, .new-topics {
+  width: 100%;
+  margin-top: 5rem;
+}
+.new-products .container, .new-topics .container {
+  margin: 0 auto;
+  padding: 0;
+}
+.new-products .scroll {
+  overflow-x: scroll;
+}
+.Home-productCard {
+  display: flex;
+  flex-direction: row-reverse;
+  height: auto;
+  margin-top: 2rem;
+  width: max-content;
+  gap: 1rem;
+}
+.new-products h2, .new-topics h2 {
+  margin: 0;
+}
+.Home-topicCard {
+  display: flex;
+  gap: 2rem;
+}
+.topic-right .topic1, .topic-right .topic2,.topic-right .topic3 {
+  display: flex;
+  gap: 2rem;
+}
+.topic-right .topic1, .topic-right .topic2 {
+  border-bottom: 1px solid rgb(186, 184, 184);
+}
+.topic-right .topic1 div, .topic-right .topic2 div,.topic-right .topic3 div{
+  width: 100%;
+}
+.topic-right .topic1 picture, .topic-right .topic2 picture,.topic-right .topic3 picture {
+  width: 100%;
+  height: 100%;
+}
+.topic-right .topic1 img, .topic-right .topic2 img,.topic-right .topic3 img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+.Home-topicCard .topic0 picture{
+  width: 100%;
+  height: 100%;
+}
+.Home-topicCard .topic0 img{
+  width: 100%;
+  height: 400px;
+}

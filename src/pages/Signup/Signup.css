@@ -1,0 +1,38 @@
+#Signup form {
+  background-color: #ffffff;
+  width: 40rem;
+  margin: 5% auto;
+  box-shadow: 20px 20px 120px rgb(129, 124, 124, 0.5);
+}
+.Signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  padding: 5rem 25%;
+}
+.Signup p {
+  font-size: .8rem;
+  font-weight: bold;
+  color: rgb(238, 90, 90);
+}
+.Signup .username input, .Signup .email input, .Signup .password input {
+  width: 20rem;
+  padding: .5rem;
+  border-radius: .2rem;
+  border: 1px solid gray;
+}
+.Signup .username label, .Signup .email label, .Signup .password label {
+  color: gray;
+}
+.Signup .btn-signup {
+  margin-top: 2rem;
+}
+.Signup h4 {
+  font-size: 1rem;
+  font-weight: 300;
+}
+.Signup a {
+  color: rgb(2, 172, 218);
+}

@@ -1,0 +1,49 @@
+.Topic {
+  background-color: #ffffff;
+  width: 100%;
+}
+.Topic .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 2rem;
+}
+.Topic .font {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.Topic h5 {
+  font-family: 'Lora&display';
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.SearchAndCreate {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.SearchAndCreate .btn-create {
+  margin-right: 15rem;
+  color:#ffffff;
+  background-color: black;
+  padding: 0.6em 1em;
+  border-radius: 3px;
+  font-size: .8em;
+}
+.SearchAndCreate .btn-create:hover {
+  background-color: gray;
+  border-color: gray;
+}
+.topicCard {
+  margin: 0 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(20% - 11.7rem);
+}
+.SearchAndCreate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

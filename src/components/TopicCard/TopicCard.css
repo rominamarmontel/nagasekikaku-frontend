@@ -1,0 +1,24 @@
+.TopicCard {
+  margin-bottom: 3rem;
+}
+.TopicCard .container{
+margin: 0 auto;
+border-bottom: 2px solid rgb(186, 186, 186);
+padding-bottom: 4rem;
+}
+.TopicCard .name {
+  font-size: 1.3rem;
+  padding-bottom: .5rem;
+}
+.TopicCard .name {
+  font-size: 1rem;
+}
+.TopicCard picture {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.TopicCard picture img {
+  width: 100%;
+  height: 500px;
+}

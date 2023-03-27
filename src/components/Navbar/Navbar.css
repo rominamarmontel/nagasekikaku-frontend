@@ -1,0 +1,14 @@
+.Navbar {
+  margin-top: 1rem;
+  display: flex;
+  justify-items: center;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+}
+.Navbar .logout {
+  padding: 0.6em 1em;
+  background-color: #fff;
+  border: 1px solid black;
+  color: black;
+}

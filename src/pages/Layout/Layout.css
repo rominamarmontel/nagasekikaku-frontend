@@ -1,0 +1,9 @@
+.wrap {
+  background-image: url("/images/logo-raku.png");
+  background-repeat: no-repeat;
+  background-size: 25%;
+  position: relative;
+}
+main {
+  padding-top: 1rem;
+}
