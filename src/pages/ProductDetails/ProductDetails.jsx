@@ -12,7 +12,7 @@ const ProductDetails = () => {
     const url = `products/${params.id}`
     myApi.get(url)
       .then((res) => setProduct(res.data))
-      .catch((e) => console.error(e))
+      .catch((error) => console.error(error))
   }, [])
 
   if (!product) {

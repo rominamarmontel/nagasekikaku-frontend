@@ -4,7 +4,7 @@ import "./ProductDetailedCard.css";
 import myApi from "../../service/service";
 import { AuthContext } from "../../context/AuthContext";
 import ProductEditForm from "../ProductEditForm/ProductEditForm";
-import Accordion from 'react-bootstrap/Accordion';
+
 
 const ProductDetailedCard = () => {
   const [editIsOn, setEditIsOn] = useState(false);
@@ -51,7 +51,7 @@ const ProductDetailedCard = () => {
         setCountInStock(res.data.oneProduct.countInStock);
         setDescription(res.data.oneProduct.description);
       })
-      .catch((e) => console.error(e));
+      .catch((error) => console.error(error));
   }, []);
 
   const editHandler = async (event) => {

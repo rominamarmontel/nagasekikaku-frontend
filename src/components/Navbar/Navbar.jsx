@@ -3,6 +3,8 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 import { useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext'
+import { BiCart } from "react-icons/bi";
+import { MdAccountCircle } from 'react-icons/md'
 
 const Navbar = () => {
   const { user, authenticateUser, removeToken } = useContext(AuthContext)
@@ -30,9 +32,9 @@ const Navbar = () => {
         </>
       ) : (
         <>
-          <NavLink to="/profile">プロフィール</NavLink>
+          <NavLink to="/profile"><MdAccountCircle className='account-icon' /></NavLink>
           <NavLink to='/cart'>
-            <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#000000" state="hover"></lord-icon>
+            <BiCart className='cart-icon' />
           </NavLink>
           <button onClick={handleClick} className='logout'>ログアウト</button>
         </>

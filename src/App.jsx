@@ -23,8 +23,8 @@ import ProductCreate from './pages/ProductCreate/ProductCreate'
 import TopicCreate from './pages/TopicCreate/TopicCreate'
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 
-// import CartPage from "./pages/CartPage/CartPage";
-// import CheckOutgPage from './pages/CheckoutPage/CheckOutPage'
+import Cart from "./pages/Cart/Cart";
+import CheckOut from './pages/Checkout/CheckOut'
 // import OrderPage from "./pages/OrderPage/OrderPage";
 
 import Error from "./pages/Error/Error";
@@ -55,8 +55,8 @@ function App() {
             <Route path="/orders" element={<OrderPage />} /> */}
             <Route path="/admin/products/create" element={<ProductCreate />} />
             <Route path="/admin/topics/create" element={<TopicCreate />} />
-            {/* <Route path="/cart" element={<CartPage />} />
-            <Route path="/checkout" element={<CheckOutgPage />} /> */}
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<CheckOut />} />
           </Route>
 
           <Route path="*" element={<Error />} />

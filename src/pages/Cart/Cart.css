@@ -1,0 +1,78 @@
+.Cart {
+  display: flex;
+}
+.Cart .container .details {
+  display:flex;
+  flex-direction: column ;
+}
+.Cart .service-box {
+  display: flex;
+  align-self: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.msg-empty {
+  display: flex;
+  justify-content: center;
+  margin-top: 25%;
+  font-size: 2rem;
+}
+.Cart .CartCard {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 5rem; 
+  padding: 1rem 2rem;
+  max-width : 100%;
+  margin-bottom: 1rem;
+  border: 1px solid grey;
+  max-width : 100%;
+}
+.Cart .CartCard div {
+  width: 5rem;
+}
+.Cart .order-summary {
+  display: flex;
+  flex-direction: column;
+  color: #1b1b1b;
+  line-height: 25px;
+  border: 1px solid #1b1b1b;
+  padding: 3rem;
+}
+.order-summary button {
+  margin-top: 1rem;
+  background-color: var(--color-red);
+  display: flex;
+  align-items: center;
+  border: none;
+}
+.order-summary .order-shokei-section, .order-soryo-section, .order-gokei-section {
+  margin-bottom: 8px;
+}
+.order-summary div {
+  display: flex;
+  justify-content: space-between;
+}
+.order-summary .order-soryo-section {
+  border-bottom: 1px solid #1b1b1b;
+}
+.btn-delete, .btn-delete:hover {
+  background-color: transparent;
+  border: none;
+}
+.text {
+  color: rgb(69, 68, 68);
+  font-size: 0.9rem;;
+}
+.batsu-icon {
+  color: rgb(80, 78, 78);
+  font-size: 1rem;
+}
+
+
+.hr {
+  border: .5px solid rgb(69, 68, 68);
+}

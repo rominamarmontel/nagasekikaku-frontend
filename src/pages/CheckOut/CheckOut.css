@@ -1,0 +1,25 @@
+.CheckOut {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.CheckOut .form {
+  margin: 0 5rem;
+}
+
+.CheckOut h2 {
+  margin: 1.5rem;
+}
+
+.CheckOut .shippingAddress h3 {
+  margin: 1.5rem;
+}
+
+.CheckOut .shippingAddress {
+  margin: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 7rem;
+}
