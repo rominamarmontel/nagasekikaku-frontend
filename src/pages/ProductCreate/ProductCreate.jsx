@@ -94,7 +94,7 @@ const ProductCreate = () => {
                 <div>
                   <input
                     type='number'
-                    value={price}
+                    value={price.toLocaleString()}
                     name="price"
                     id="price"
                     min='1'

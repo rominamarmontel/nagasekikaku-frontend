@@ -11,7 +11,9 @@ import { AuthContext } from '../../context/AuthContext'
 const Cart = () => {
   const [product, setProduct] = useState(null)
   const [totalPrice, setTotalPrice] = useState(0)
+  const [finalPrice, setFinalPrice] = useState(0)
   const { user } = useContext(AuthContext)
+  const shippingFee = totalPrice >= 10000 ? 0 : 1500;
 
   if (!user) {
     return <Spinner />
@@ -31,12 +33,19 @@ const Cart = () => {
 
   useEffect(() => calculateTotalPrice(), [product])
 
+  useEffect(() => {
+    const newFinalPrice = Number(shippingFee) + Number(totalPrice);
+    setFinalPrice(newFinalPrice);
+  }, [shippingFee, totalPrice]);
+
   function calculateTotalPrice() {
     if (!product) return
     const allPrices = product.reduce((acc, val) => {
       return acc + val.qty * val.product.price
     }, 0)
-    setTotalPrice(allPrices)
+    const formattedPrice = allPrices.toLocaleString();
+    const numericPrice = Number(formattedPrice.replace(/,/g, ''));
+    setTotalPrice(numericPrice);
   }
   if (!product) return <Spinner />
 
@@ -65,15 +74,15 @@ const Cart = () => {
                 <div className="order-summary">
                   <div className="order-shokei-section">
                     <span>小計</span>
-                    <span>{totalPrice} 円</span>
+                    <span>{totalPrice.toLocaleString()} 円</span>
                   </div>
                   <div className="order-soryo-section">
                     <span>送料</span>
-                    <span>{totalPrice >= 10000 ? 0 : 1500} 円</span>
+                    <span>{shippingFee.toLocaleString()} 円</span>
                   </div>
                   <div className="order-gokei-section">
                     <span>合計</span>
-                    <span>{totalPrice >= 10000 ? totalPrice : totalPrice + 1500} 円</span>
+                    <span>{finalPrice.toLocaleString()} 円</span>
                   </div>
                   <div className="process-to-next">
                     <Link to="/checkout">

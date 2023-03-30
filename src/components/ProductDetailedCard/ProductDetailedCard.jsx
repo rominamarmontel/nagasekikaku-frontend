@@ -112,7 +112,7 @@ const ProductDetailedCard = () => {
                       <tr>
                         <td></td>
                         <td>
-                          <p className="price">{product.price} 円<small>(税込)</small></p>
+                          <p className="price">{price.toLocaleString()} 円<small>(税込)</small></p>
                         </td>
                       </tr>
                       <tr>

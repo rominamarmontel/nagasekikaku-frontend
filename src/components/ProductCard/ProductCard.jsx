@@ -16,7 +16,7 @@ const ProductCard = (props) => {
           </div>
         </Link>
         <div>
-          <p className='price'>{product.price} 円</p>
+          <p className='price'>{product.price.toLocaleString()} 円</p>
         </div>
       </div>
     </div >

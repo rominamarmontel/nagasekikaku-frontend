@@ -102,7 +102,7 @@ const ProductEditForm = (props) => {
                 <div>
                   <input
                     name="price"
-                    value={price}
+                    value={price.toLocaleString()}
                     id="price"
                     onChange={(event) => setPrice(event.target.value)}
                   />
