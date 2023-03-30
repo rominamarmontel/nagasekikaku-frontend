@@ -9,7 +9,7 @@ const ProtectedRoute = () => {
   if (isLoading) {
     return <p>Loading...</p>
   }
-  console.log({ isLoading, user })
+  // console.log({ isLoading, user })
   if (!user) {
     return <Navigate to="/login" />
   }

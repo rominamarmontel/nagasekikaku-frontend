@@ -20,13 +20,15 @@ import ProtectedRoute from "./pages/Navigation/ProtectedRoute";
 // import FormAddAddress from "./pages/ProfilePage/Forms/FormAddAddress";
 
 import ProductCreate from './pages/ProductCreate/ProductCreate'
-// import DetailedProductPage from "./pages/DetailedProductPage/DetailedProductPage";
+import TopicCreate from './pages/TopicCreate/TopicCreate'
+import ProductDetails from "./pages/ProductDetails/ProductDetails";
 
 // import CartPage from "./pages/CartPage/CartPage";
 // import CheckOutgPage from './pages/CheckoutPage/CheckOutPage'
 // import OrderPage from "./pages/OrderPage/OrderPage";
 
 import Error from "./pages/Error/Error";
+
 
 function App() {
   return (
@@ -35,7 +37,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/store" element={<Store />} />
-          {/* <Route path="/products/:id" element={<DetailedProductPage />} /> */}
+          <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/topic" element={<Topic />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
@@ -52,6 +54,7 @@ function App() {
             <Route path="/profile/add-address" element={<FormAddAddress />} />
             <Route path="/orders" element={<OrderPage />} /> */}
             <Route path="/admin/products/create" element={<ProductCreate />} />
+            <Route path="/admin/topics/create" element={<TopicCreate />} />
             {/* <Route path="/cart" element={<CartPage />} />
             <Route path="/checkout" element={<CheckOutgPage />} /> */}
           </Route>

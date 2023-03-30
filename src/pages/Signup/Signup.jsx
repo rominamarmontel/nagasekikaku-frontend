@@ -81,8 +81,8 @@ const Signup = () => {
             <button>登録する</button>
           </div>
           <div>
-            <h4>既に登録されている方はこちらからログインしてください
-              <Link to='/Login'> ログイン</Link></h4></div>
+            <h4>すでに登録されている方は<br />こちらから
+              <Link to='/Login'> ログイン</Link>してください</h4></div>
         </div>
       </form>
     </section>

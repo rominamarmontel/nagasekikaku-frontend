@@ -53,7 +53,7 @@ const Login = () => {
           <div className='btn-login'>
             <button>ログイン</button>
           </div>
-          <div><h4>初めての方はこちらから会員登録してください。<Link to='/Signup'> 会員登録へ</Link></h4></div>
+          <div><h4>初めての方は<br />こちらから<Link to='/Signup'>会員登録</Link>してください。</h4></div>
         </div>
       </form>
     </section>

@@ -1,49 +1,40 @@
 .Topic {
+  margin: 0 auto;
+  padding: 0;
   background-color: #ffffff;
-  width: 100%;
+  width: 80vw;
+  height: calc(100vh - 12rem);
+  overflow-y: scroll;
 }
 .Topic .title {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
+  align-items: flex-start;
   padding: 2rem;
 }
-.Topic .font {
+.Topic .title div{
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
-.Topic h5 {
-  font-family: 'Lora&display';
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-.SearchAndCreate {
+.Topic .title p {
+  font-size: 2rem;
+  color:var(--color-blue);
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  gap: 1rem;
 }
-.SearchAndCreate .btn-create {
+.Topic .title .btn-topic-create {
   margin-right: 15rem;
   color:#ffffff;
-  background-color: black;
+  background-color: var(--color-blue);
   padding: 0.6em 1em;
   border-radius: 3px;
   font-size: .8em;
 }
-.SearchAndCreate .btn-create:hover {
+.Topic .title .btn-create:hover {
   background-color: gray;
   border-color: gray;
 }
 .topicCard {
   margin: 0 5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: calc(20% - 11.7rem);
-}
-.SearchAndCreate {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }

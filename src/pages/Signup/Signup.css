@@ -34,5 +34,6 @@
   font-weight: 300;
 }
 .Signup a {
-  color: rgb(2, 172, 218);
+  color: var(--color-blue);
+  font-weight: 800;
 }

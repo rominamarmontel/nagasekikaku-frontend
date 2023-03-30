@@ -1,38 +1,31 @@
 .Store {
+  margin: 0 auto;
+  padding: 0;
   background-color: #ffffff;
-  width: 100%;
+  width: 80vw;
+  height: calc(100vh - 12rem);
+  overflow-y: scroll;
 }
 .Store .title {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
+  align-items: flex-start;
   padding: 2rem;
 }
-.Store .font {
+.Store .title div {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
-.Store h5 {
-  font-family: 'Lora&display';
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-.SearchAndCreate {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-.SearchAndCreate .btn-create {
+.Store .btn-product-create {
   margin-right: 15rem;
   color:#ffffff;
-  background-color: black;
+  background-color: var(--color-blue);
   padding: 0.6em 1em;
   border-radius: 3px;
   font-size: .8em;
 }
-.SearchAndCreate .btn-create:hover {
+.Store .btn-product-create:hover {
   background-color: gray;
   border-color: gray;
 }
@@ -42,8 +35,4 @@
   flex-wrap: wrap;
   gap: calc(20% - 11.7rem);
 }
-.SearchAndCreate {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+

@@ -38,13 +38,11 @@ const ProductCreate = () => {
       }
       if (response.status === 201) {
         setShowConfetti(true)
-
         setTimeout(() => {
           setShowConfetti(false)
           navigate('/store')
         }, 3000)
       }
-      console.log(response)
     } catch (error) {
       console.error(error)
     }
@@ -52,16 +50,16 @@ const ProductCreate = () => {
 
   return (
     <>
-      <div className='ProductCreatePage'>
+      <div className='ProductCreate'>
         <div className='container'>
-          <div>
-            <h2>ADMIN PAGE</h2>
-            <h5>CREATE A PRODUCT</h5>
+          <div className='title'>
+            <h2>商品の新規作成</h2>
+            <h5>管理者専用画面</h5>
           </div>
           <form onSubmit={handleSubmit}>
             <div className='form-box'>
               <div>
-                <label htmlFor="name">Name:</label>
+                <label htmlFor="name">名前</label>
                 <div>
                   <input
                     type='text'
@@ -72,7 +70,7 @@ const ProductCreate = () => {
                   ></input>
                 </div>
 
-                <label htmlFor="brand">Brand: </label>
+                <label htmlFor="brand">ブランド </label>
                 <div>
                   <input
                     type='text'
@@ -82,7 +80,7 @@ const ProductCreate = () => {
                     onChange={(event) => setBrand(event.target.value)}
                   ></input>
                 </div>
-                <label htmlFor="category">Category: </label>
+                <label htmlFor="category">カテゴリー</label>
                 <div>
                   <input
                     type='text'
@@ -92,7 +90,7 @@ const ProductCreate = () => {
                     onChange={(event) => setCategory(event.target.value)}
                   ></input>
                 </div>
-                <label htmlFor="price">Price: </label>
+                <label htmlFor="price">価格（税込）</label>
                 <div>
                   <input
                     type='number'
@@ -103,7 +101,7 @@ const ProductCreate = () => {
                     onChange={(event) => setPrice(event.target.value)}
                   ></input>
                 </div>
-                <label htmlFor="countInStock">Count in stock: </label>
+                <label htmlFor="countInStock">在庫数</label>
                 <div>
                   <input
                     type='number'
@@ -117,11 +115,11 @@ const ProductCreate = () => {
               </div>
 
               <div>
-                <label htmlFor="edit-image">Image:</label>
+                <label htmlFor="edit-image">商品画像</label>
                 <div>
                   <input type="file" name="image" onChange={(e) => setImageFile(e.target.files[0])} />
                 </div>
-                <label htmlFor="description">Description: </label>
+                <label htmlFor="description">商品説明</label>
                 <div>
                   <textarea
                     type='text'
@@ -134,7 +132,7 @@ const ProductCreate = () => {
               </div>
             </div>
             <div>{message}</div>
-            <button>Create</button>
+            <button>作成する</button>
             {showConfetti && <Confetti recycle={false} />}
           </form>
         </div>

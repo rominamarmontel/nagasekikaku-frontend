@@ -1,20 +1,22 @@
 import React from 'react';
 import './Search.css'
 
-function Search({ handleInputChange, searchKeyword }) {
+function Search(props) {
   return (
     <>
       <div className='Search'>
-        <input
-          id="search-keyword"
-          value={searchKeyword}
-          type="text"
-          placeholder='Search'
-          onChange={handleInputChange}
-        />
+        <form onSubmit={props.handleSearch}>
+          <input
+            id="search-keyword"
+            value={props.searchKeyword}
+            type="text"
+            placeholder='Search'
+            onChange={props.handleInputChange}
+          />
+        </form>
       </div>
     </>
   );
 }
 
-export default Search
+export default Search;

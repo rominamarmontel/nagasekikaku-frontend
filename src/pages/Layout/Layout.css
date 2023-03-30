@@ -3,7 +3,34 @@
   background-repeat: no-repeat;
   background-size: 25%;
   position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  min-height: 100vh;
+}
+/* main {
+  padding-top: 1rem;
+} */
+header {
+  position: fixed;
+  top: 0;
+  height: 1.5rem;
+  z-index: 9999;
 }
 main {
-  padding-top: 1rem;
+  padding-top: 6.5rem;
+  padding-bottom: 0.5rem;
 }
+footer {
+  position: fixed;
+}
+
+/* header {
+  height: 2rem;
+}
+main {
+  height: calc(100vh - 2rem - 1rem);
+}
+footer {
+  height: 1rem;
+} */

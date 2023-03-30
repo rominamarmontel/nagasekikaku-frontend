@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import myApi from "../../service/service";
 import "./Topic.css";
 import { AuthContext } from "../../context/AuthContext";
+import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import Spinner from '../../components/Spinner/Spinner'
 
 const Topic = () => {
   const [topics, setTopics] = useState(null)
@@ -20,7 +22,7 @@ const Topic = () => {
   }, []);
 
   if (!topics) {
-    return <div className="Loading">Loading...</div>;
+    return <Spinner />
   }
   const handleInputChange = (event) => {
     setCreateIsOn(!createIsOn)
@@ -31,14 +33,14 @@ const Topic = () => {
       <div className="Topic">
         <div className="container">
           <div className="title">
-            <div className="font">
+            <div>
               <h2>お知らせ</h2>
               <h5>Information from KANRAKU</h5>
             </div>
-            <div className="SearchAndCreate">
-              {true && <Link to={'/admin/topics/create'} className='btn-create'>Create</Link>}
-              {/* {user && user.isAdmin && <Link to={'/admin/products/create'} className='btn-create'>Create</Link>} */}
+            <div>
+              {user && user.isAdmin && <Link to={'/admin/topics/create'} className='btn-topic-create'>新規作成</Link>}
             </div>
+            <p><FaTwitter /><FaYoutube /><FaFacebook /><FaInstagram /></p>
           </div>
           <div className="topicCard">
             {topics.map((topic) => {
