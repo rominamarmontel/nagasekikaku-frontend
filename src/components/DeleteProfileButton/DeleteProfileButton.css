@@ -1,0 +1,32 @@
+.DeleteProfileButton .delete-form div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.DeleteProfileButton .delete-form input {
+  height: 2rem;
+  padding: 0.1rem;
+  border: 1px solid lightgray;
+  border-radius: 0.25rem;
+}
+
+.DeleteProfileButton .italic {
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+.DeleteProfileButton .error-dlt {
+  color: red
+}
+
+.DeleteProfileButton button {
+  margin-top: 2rem;
+  background-color: red;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+lord-icon {
+  width: 1.5rem
+}

@@ -14,10 +14,10 @@ import Signup from "./pages/Signup/Signup";
 
 import ProtectedRoute from "./pages/Navigation/ProtectedRoute";
 
-// import ProfilePage from "./pages/ProfilePage/ProfilePage";
-// import FormEditProfile from "./pages/ProfilePage/Forms/FormEditProfile";
-// import FormEditAddress from "./pages/ProfilePage/Forms/FormEditAddress";
-// import FormAddAddress from "./pages/ProfilePage/Forms/FormAddAddress";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import FormEditProfile from "./pages/ProfilePage/Forms/FormEditProfile";
+import FormEditAddress from "./pages/ProfilePage/Forms/FormEditAddress";
+import FormAddAddress from "./pages/ProfilePage/Forms/FormAddAddress";
 
 import ProductCreate from './pages/ProductCreate/ProductCreate'
 import TopicCreate from './pages/TopicCreate/TopicCreate'
@@ -48,11 +48,11 @@ function App() {
           </Route>
 
           <Route element={<ProtectedRoute />}>
-            {/* <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/profile" element={<ProfilePage />} />
             <Route path="/profile/edit-informations" element={<FormEditProfile />} />
             <Route path="/profile/edit-address" element={<FormEditAddress />} />
             <Route path="/profile/add-address" element={<FormAddAddress />} />
-            <Route path="/orders" element={<OrderPage />} /> */}
+            {/* <Route path="/orders" element={<OrderPage />} /> */}
             <Route path="/admin/products/create" element={<ProductCreate />} />
             <Route path="/admin/topics/create" element={<TopicCreate />} />
             <Route path="/cart" element={<Cart />} />
