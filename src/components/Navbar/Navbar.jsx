@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 import { BiCart } from "react-icons/bi";
 import { MdAccountCircle } from 'react-icons/md'
+import { RiAdminLine } from 'react-icons/ri'
 
 const Navbar = () => {
   const { user, authenticateUser, removeToken } = useContext(AuthContext)
@@ -32,6 +33,7 @@ const Navbar = () => {
         </>
       ) : (
         <>
+          {user && user.isAdmin && <NavLink to={'/admin/top'}><RiAdminLine className='account-icon' /></NavLink>}
           <NavLink to="/profile"><MdAccountCircle className='account-icon' /></NavLink>
           <NavLink to='/cart'>
             <BiCart className='cart-icon' />
