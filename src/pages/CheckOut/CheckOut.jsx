@@ -1,38 +1,64 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 import PaymentMethod from '../../components/PaymentMethod/PaymentMethod'
 import './CheckOut.css'
+import Zenkaku2hankaku from '../../components/Zenkaku2hankaku/Zenkaku2hankaku'
+import axios from 'axios'
 
 const CheckOut = () => {
   const { user, setUser } = useContext(AuthContext)
-  const [address, setAddress] = useState(user.shippingAddress?.address || '')
   const [postalCode, setPostalCode] = useState(user.shippingAddress?.postalCode || '')
+  const [prefecture, setPrefecture] = useState(user.shippingAddress?.prefecture || '')
   const [city, setCity] = useState(user.shippingAddress?.city || '')
+  const [town, setTown] = useState(user.shippingAddress?.town || '')
+  const [addressA, setAddressA] = useState(user.shippingAddress?.addressA || '')
+  const [addressB, setAddressB] = useState(user.shippingAddress?.addressB || '')
+  const [phoneNumber, setPhoneNumber] = useState(user.shippingAddress?.phoneNumber || '')
   const [isAddressValid, setIsAddressValid] = useState(false)
 
-  const handleAddressChange = (event) => {
-    setAddress(event.target.value)
+  const handlePostalCodeChange = async (event) => {
+    const value = Zenkaku2hankaku(event.target.value)
+    const res = await axios.get('https://api.zipaddress.net/?zipcode=' + value);
+    if (res.data.code === 200) {
+      setPrefecture(res.data.data.pref);
+      setCity(res.data.data.city);
+      setTown(res.data.data.town);
+      setPostalCode(value)
+    }
   }
-
-  const handlePostalCodeChange = (event) => {
-    setPostalCode(event.target.value)
+  const handleAddressAChange = (event) => {
+    setAddressA(Zenkaku2hankaku(event.target.value))
   }
-
-  const handleCityChange = (event) => {
-    setCity(event.target.value)
+  const handleAddressBChange = (event) => {
+    setAddressB(Zenkaku2hankaku(event.target.value))
+  }
+  const handlePhoneNumberChange = (event) => {
+    setPhoneNumber(Zenkaku2hankaku(event.target.value))
   }
 
   const handleAddressValidation = () => {
-    if (address.trim() === '') {
-      alert('Please enter a valid address.')
-      return
-    }
     if (postalCode.trim() === '') {
-      alert('Please enter a valid postal code.')
+      alert('郵便番号がありません')
       return
     }
-    if (city.trim() === '') {
-      alert('Please enter a valid city.')
+    // if (prefecture.trim() === '') {
+    //   alert('都道府県がありません')
+    //   return
+    // }
+    // if (city.trim() === '') {
+    //   alert('市町村がありません')
+    //   return
+    // }
+    // if (town.trim() === '') {
+    //   alert('町名がありません')
+    //   return
+    // }
+    // if (addressA.trim() === '') {
+    //   alert('番地がありません')
+    //   return
+    // }
+    if (!phoneNumber) {
+      alert('電話番号を確認してください')
       return
     }
     setIsAddressValid(true)
@@ -42,35 +68,51 @@ const CheckOut = () => {
     handleAddressValidation()
   }
 
-  return (
 
+  return (
     <div className='CheckOut'>
-      <h2>Check out</h2>
+      <h2>購入のお手続き</h2>
       <div className='form'>
         <form className='shippingAddress' onSubmit={handleSubmit}>
+          <h3>1. 配達先住所の確認</h3>
           <table>
             <tbody>
               <tr>
-                <td><label htmlFor='postalCode'>郵便番号:</label></td>
-                <td><input type="text" value={postalCode} name='postalCode' id='postalCode' onChange={handlePostalCodeChange} placeholder='郵便番号' /></td>
+                <td><label htmlFor='postalCode'>郵便番号</label></td>
+                <td><input type="text" name='postalCode' id='postalCode' defaultValue={user.shippingAddress.postalCode} onChange={handlePostalCodeChange} placeholder='郵便番号' /></td>
               </tr>
               <tr>
-                <td><label htmlFor='city'>都道府県:</label></td>
-                <td><input type="text" value={city} name='city' id='city' onChange={handleCityChange} placeholder='都道府県' /></td>
+                <td><label htmlFor='city'>都道府県</label></td>
+                <td><input type="text" value={prefecture} name='city' id='city' placeholder='都道府県' disabled={true} /></td>
               </tr>
               <tr>
-                <td><label htmlFor='address'>住所</label></td>
-                <td><input type="text" value={address} name='address' id='address' onChange={handleAddressChange} placeholder='住所' /></td>
+                <td><label htmlFor='city'>市町村</label></td>
+                <td><input type="text" value={city} name='city' id='city' placeholder='市町村' disabled={true} /></td>
+              </tr>
+              <tr>
+                <td><label htmlFor='city'>町名</label></td>
+                <td><input type="text" value={town} name='town' id='town' placeholder='町名' disabled={true} /></td>
+              </tr>
+              <tr>
+                <td><label htmlFor='addressA'>番地</label></td>
+                <td><input type="text" value={addressA} name='addressA' id='addressA' placeholder='番地' onChange={handleAddressAChange} /></td>
+              </tr>
+              <tr>
+                <td><label htmlFor='addressB'>その他</label></td>
+                <td><input type="text" value={addressB} name='addressB' id='addressB' placeholder='アパート名、何号室など' onChange={handleAddressBChange} /></td>
+              </tr>
+              <tr>
+                <td><label htmlFor='phoneNumber'>電話番号</label></td>
+                <td><input type="text" value={phoneNumber} name='phoneNuber' id='phoneNumber' onChange={handlePhoneNumberChange} placeholder='0901234567' /></td>
               </tr>
             </tbody>
           </table>
           <div className="form-address-btns">
-            <button type='submit'>Confirm Address</button>
+            <button type='submit'>確認して次に進む</button>
           </div>
         </form>
 
       </div>
-
 
       {isAddressValid && (
         <div className='form'>

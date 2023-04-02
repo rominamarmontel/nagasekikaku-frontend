@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthContext';
 import './FormEditProfile.css'
 import myApi from '../../../service/service'
-
+import Zenkaku2hankaku from '../../../components/Zenkaku2hankaku/Zenkaku2hankaku';
 
 const EditInformation = () => {
   const { user, setUser } = useContext(AuthContext)
@@ -12,12 +12,12 @@ const EditInformation = () => {
   const [email, setEmail] = useState(user.email)
   const [message, setMessage] = useState('')
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value)
-  }
 
+  const handleUsernameChange = (event) => {
+    setUsername(Zenkaku2hankaku(event.target.value))
+  }
   const handleEmailChange = (event) => {
-    setEmail(event.target.value)
+    setEmail(Zenkaku2hankaku(event.target.value))
   }
 
   const handleSubmit = async (event) => {

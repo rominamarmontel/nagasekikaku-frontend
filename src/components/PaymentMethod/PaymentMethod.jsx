@@ -36,13 +36,13 @@ const PaymentMethod = () => {
     <div className='PaymentMethod'>
 
       <form onSubmit={handleSubmit}>
-        <h3>2. Choose payment method</h3>
+        <h3>2.支払い方法の確認</h3>
 
         <table>
           <tbody>
             <tr>
               <td><input type='radio' id='creditCard' name='paymentMethod' value='creditCard' checked={paymentMethod === 'creditCard'} onChange={handlePaymentMethodChange} /></td>
-              <td><label htmlFor='creditCard'>Credit Card</label></td>
+              <td><label htmlFor='creditCard'>クレジットカード</label></td>
             </tr>
 
             <tr>
@@ -53,12 +53,9 @@ const PaymentMethod = () => {
         </table>
 
         {errorMessage && <p className='error'>{errorMessage}</p>}
-        <button type='submit'>Continue</button>
       </form>
-
       {paymentMethod === 'creditCard' && <CreditCard />}
       {paymentMethod === 'paypal' && <PayPal />}
-
     </div>
   )
 }

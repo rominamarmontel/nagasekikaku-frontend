@@ -4,6 +4,7 @@ import { AuthContext } from '../../../context/AuthContext';
 import './FormAddAddress.css'
 import myApi from '../../../service/service'
 import axios from "axios";
+import Zenkaku2hankaku from '../../../components/Zenkaku2hankaku/Zenkaku2hankaku';
 
 const AddAddress = () => {
   const { user, setUser } = useContext(AuthContext)
@@ -18,23 +19,24 @@ const AddAddress = () => {
   const navigate = useNavigate()
 
   const handlePostalCodeChange = async (event) => {
-    const res = await axios.get('https://api.zipaddress.net/?zipcode=' + event.target.value);
+    const value = Zenkaku2hankaku(event.target.value)
+    const res = await axios.get('https://api.zipaddress.net/?zipcode=' + value);
     if (res.data.code === 200) {
       setPrefecture(res.data.data.pref);
       setCity(res.data.data.city);
       setTown(res.data.data.town);
-      setPostalCode(event.target.value)
+      setPostalCode(value)
     }
   }
 
   const handleAddressAChange = (event) => {
-    setAddressA(event.target.value)
+    setAddressA(Zenkaku2hankaku(event.target.value))
   }
   const handleAddressBChange = (event) => {
-    setAddressB(event.target.value)
+    setAddressB(Zenkaku2hankaku(event.target.value))
   }
   const handlePhoneNumberChange = (event) => {
-    setPhoneNumber(event.target.value)
+    setPhoneNumber(Zenkaku2hankaku(event.target.value))
   }
 
 

@@ -7,7 +7,6 @@ import Spinner from '../../components/Spinner/Spinner'
 
 const ProfilePage = (props) => {
   const { user } = useContext(AuthContext)
-  console.log(user.shippingAddress)
   if (!user) {
     return <Spinner />
   }
@@ -18,8 +17,8 @@ const ProfilePage = (props) => {
       <div className="UserProfile">
         <div className='ProfileInfos'>
           <h3>プロフィール情報</h3>
-          <p><span>Username:</span> {user.username}</p>
-          <p><span>Email:</span> {user.email}</p>
+          <p><span>お名前:</span> {user.username}</p>
+          <p><span>メールアドレス:</span> {user.email}</p>
           <Link to="edit-informations">
             <button>プロフィールを変更</button>
           </Link>

@@ -24,8 +24,8 @@ import TopicCreate from './pages/TopicCreate/TopicCreate'
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 
 import Cart from "./pages/Cart/Cart";
-import CheckOut from './pages/Checkout/CheckOut'
-// import OrderPage from "./pages/OrderPage/OrderPage";
+import CheckOut from './pages/CheckOut/CheckOut'
+import Orders from "./pages/Orders/Orders";
 
 import Error from "./pages/Error/Error";
 
@@ -52,7 +52,7 @@ function App() {
             <Route path="/profile/edit-informations" element={<FormEditProfile />} />
             <Route path="/profile/edit-address" element={<FormEditAddress />} />
             <Route path="/profile/add-address" element={<FormAddAddress />} />
-            {/* <Route path="/orders" element={<OrderPage />} /> */}
+            <Route path="/orders" element={<Orders />} />
             <Route path="/admin/products/create" element={<ProductCreate />} />
             <Route path="/admin/topics/create" element={<TopicCreate />} />
             <Route path="/cart" element={<Cart />} />

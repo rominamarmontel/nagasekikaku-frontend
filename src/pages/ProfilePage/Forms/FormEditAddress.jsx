@@ -4,10 +4,11 @@ import { AuthContext } from '../../../context/AuthContext';
 import './FormEditAddress.css'
 import myApi from '../../../service/service'
 import axios from "axios";
+import Zenkaku2hankaku from '../../../components/Zenkaku2hankaku/Zenkaku2hankaku';
+
 
 const EditAddress = () => {
   const { user, setUser } = useContext(AuthContext)
-  console.log(user)
   const navigate = useNavigate()
   const [postalCode, setPostalCode] = useState(user.shippingAddress.postalCode)
   const [prefecture, setPrefecture] = useState(user.shippingAddress.prefecture)
@@ -19,23 +20,24 @@ const EditAddress = () => {
   const [message, setMessage] = useState('')
 
   const handlePostalCodeChange = async (event) => {
-    const res = await axios.get('https://api.zipaddress.net/?zipcode=' + event.target.value);
+    const value = Zenkaku2hankaku(event.target.value)
+    const res = await axios.get('https://api.zipaddress.net/?zipcode=' + value);
     if (res.data.code === 200) {
       setPrefecture(res.data.data.pref);
       setCity(res.data.data.city);
       setTown(res.data.data.town);
-      setPostalCode(event.target.value)
+      setPostalCode(value)
     }
   }
-  const handlePhoneNumberChange = (event) => {
-    setPhoneNumber(event.target.value)
-  }
 
+  const handlePhoneNumberChange = (event) => {
+    setPhoneNumber(Zenkaku2hankaku(event.target.value))
+  }
   const handleAddressAChange = (event) => {
-    setAddressA(event.target.value)
+    setAddressA(Zenkaku2hankaku(event.target.value))
   }
   const handleAddressBChange = (event) => {
-    setAddressB(event.target.value)
+    setAddressB(Zenkaku2hankaku(event.target.value))
   }
 
   const handleSubmit = async (event) => {
@@ -66,12 +68,11 @@ const EditAddress = () => {
     <div className='FormEditAddress'>
       <h2>配達先住所の編集</h2>
       <form onSubmit={handleSubmit}>
-
         <table>
           <tbody>
             <tr>
               <td><label htmlFor='postalCode'>郵便番号</label></td>
-              <td><input type="text" className='postalCode' name='postalCode' id='postalCode' onChange={handlePostalCodeChange} placeholder='例)1234567' /></td>
+              <td><input type="text" className='postalCode' name='postalCode' defaultValue={user.shippingAddress.postalCode} id='postalCode' onChange={handlePostalCodeChange} placeholder='例)1234567' /></td>
             </tr>
             <tr>
               <td><label htmlFor='prefecture'>都道府県</label></td>
