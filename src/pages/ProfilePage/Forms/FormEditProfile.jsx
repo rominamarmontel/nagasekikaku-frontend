@@ -4,8 +4,14 @@ import { AuthContext } from '../../../context/AuthContext';
 import './FormEditProfile.css'
 import myApi from '../../../service/service'
 import Zenkaku2hankaku from '../../../components/Zenkaku2hankaku/Zenkaku2hankaku';
+import Breadcrumb from '../../../components/Breadcrumb/Breadcrumb';
 
 const EditInformation = () => {
+  const items = [
+    { label: "HOME", link: "/" },
+    { label: "アカウントページ", link: "/profile" },
+    { label: "プロフィール編集", active: true },
+  ];
   const { user, setUser } = useContext(AuthContext)
   const navigate = useNavigate()
   const [username, setUsername] = useState(user.username)
@@ -34,20 +40,25 @@ const EditInformation = () => {
   }
 
   return (
-    <div className='FormEditProfile'>
-      <h2>プロフィールの編集</h2>
-      <form onSubmit={handleSubmit} action=''>
-        <label htmlFor='username'>お名前</label>
-        <input type="text" value={username} name='username' id='username' onChange={handleUsernameChange} placeholder='' />
+    <>
+      <div>
+        <Breadcrumb items={items} />
+      </div>
+      <div className='FormEditProfile'>
+        <h2>プロフィールの編集</h2>
+        <form onSubmit={handleSubmit} action=''>
+          <label htmlFor='username'>お名前</label>
+          <input type="text" value={username} name='username' autoComplete='current-username' id='username' onChange={handleUsernameChange} placeholder='' />
 
-        <label htmlFor='email'>メールアドレス</label>
-        <input type="text" value={email} name='email' id='email' onChange={handleEmailChange} placeholder='' />
+          <label htmlFor='email'>メールアドレス</label>
+          <input type="text" value={email} name='email' id='email' autoComplete='current-email' onChange={handleEmailChange} placeholder='' />
 
-        <button>保存</button>
-        <Link to='/profile'>キャンセル</Link>
-      </form>
-      <div>{message}</div>
-    </div>
+          <button>保存</button>
+          <Link to='/profile'>キャンセル</Link>
+        </form>
+        <div>{message}</div>
+      </div>
+    </>
   )
 }
 

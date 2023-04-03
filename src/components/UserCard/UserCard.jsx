@@ -2,7 +2,6 @@ import React from 'react'
 import './UserCard.css'
 
 const UserCard = (props) => {
-  console.log(props)
   if (!props.user || props.user === null) {
     return null;
   }
@@ -10,20 +9,28 @@ const UserCard = (props) => {
 
   return (
     <div className='UserCard'>
-      <p>{_id}</p>
-      <p>{username}</p>
-      <p>{email}</p>
-      {shippingAddress && (
-        <div>
-          <p>{shippingAddress.postalCode}
-            {shippingAddress.prefecture}
-            {shippingAddress.city}
-            {shippingAddress.town}
-            {shippingAddress.addressA}
-            {shippingAddress.addressB}</p>
-          <p>{shippingAddress.phoneNumber}</p>
-        </div>
-      )}
+      <table>
+        <tbody>
+          <tr>
+            <td><small>{_id}</small></td>
+            <td><p>{username}</p></td>
+            <td><p>{email}</p></td>
+            {shippingAddress && (
+              <>
+                <td>
+                  {shippingAddress.postalCode}
+                  {shippingAddress.prefecture}
+                  {shippingAddress.city}
+                  {shippingAddress.town}
+                  {shippingAddress.addressA}
+                  {shippingAddress.addressB}
+                </td>
+                <td>{shippingAddress.phoneNumber}</td>
+              </>
+            )}
+          </tr>
+        </tbody>
+      </table>
     </div>
   )
 }

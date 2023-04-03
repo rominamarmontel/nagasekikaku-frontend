@@ -1,59 +1,31 @@
 .ProfilePage {
   margin: 0 auto;
-  text-align: center;
+  padding: 0;
+  background-color: #ffffff;
+  width: 80vw;
+  height: calc(100vh - 12rem);
+  overflow-y: scroll;
 }
-
-
-
-.UserProfile {
-  display: flex;
-  justify-content: space-evenly;
-  gap: 2rem;
+.ProfilePage .container {
+  width: 80%;
+  margin: 0 auto;
 }
-
-.UserOrders {
-  display: flex;
-  justify-content: center;
-  margin: 2rem;
+.ProfilePage .title {
+  padding: 2rem;
 }
-
-.ProfileInfos,
-.UserShippingAddress,
-.NoShippingAddress,
-.OrdersContainer {
-  margin: 0.5rem;
-  padding: 0.5rem;
-  border: 1px solid black;
-  background-color: white;;
-  border-radius: 0.5rem;
+.ProfilePage .UserProfile {
   display: flex;
-  flex-direction: column;
-  justify-items: center;
   justify-content: space-between;
-  width: 20rem;
+  align-items: center;
+  border-bottom: solid 1px black;
+  border-top: solid 1px black;
+  margin: 2rem 0;
+  padding: 2rem 0;
 }
-
-.ProfileInfos span {
-  font-weight: 700;
-} 
-
-.ProfilePage button {
-  margin: 0.75rem;
-  color:#ffffff;
-  background-color: black;
-  padding: 0.6em 1em;
-  border-radius: 0.25rem;
-  font-size: .8em;
-}
-.ProfilePage button:hover {
-  background-color: gray;
-  border-color: gray;
-}
-
-.NoShippingAddress button, .NoShippingAddress p {
-  margin-top: 2.5rem;
-}
-
-.OrdersContainer button, .OrdersContainer p {
-  margin-top: 2.5rem;
+.UserShippingAddress {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px black;
+  padding-bottom: 2rem;
 }

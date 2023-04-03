@@ -6,9 +6,14 @@ import './Cart.css'
 import Spinner from '../../components/Spinner/Spinner'
 import { FaArrowRight } from 'react-icons/fa'
 import { AuthContext } from '../../context/AuthContext'
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 
 
 const Cart = () => {
+  const items = [
+    { label: "HOME", link: "/" },
+    { label: "ショッピングカート", active: true },
+  ];
   const [product, setProduct] = useState(null)
   const [totalPrice, setTotalPrice] = useState(0)
   const [finalPrice, setFinalPrice] = useState(0)
@@ -51,25 +56,26 @@ const Cart = () => {
 
   return (
     <>
+      <div>
+        <Breadcrumb items={items} />
+      </div>
       {product.length === 0 ? (
         <div className='msg-empty'>
-          <p>カートの中身は空です</p>
-          <Link to={'/store'}>オンラインストアへ戻る</Link>
+          <h3>カートの中身は空です</h3>
+          <Link to={'/store'} className="back-to-store">オンラインストアへ戻る</Link>
         </div>
       ) : (
         <>
           <div className="Cart">
+            <div className="title">
+              <h2>商品の確認</h2>
+            </div>
             <div className="container">
-              <div className="title">
-                <p>{user.username}さんのショッピングカート</p>
-              </div>
               <div className="service-box">
                 <div className="cart-details">
-                  <div className='items-list'>
-                    {product.map((item) => {
-                      return <CartCard key={item.product._id} item={item} onRemove={fetchCart} />
-                    })}
-                  </div>
+                  {product.map((item) => {
+                    return <CartCard key={item.product._id} item={item} onRemove={fetchCart} />
+                  })}
                 </div>
                 <div className="order-summary">
                   <div className="order-shokei-section">

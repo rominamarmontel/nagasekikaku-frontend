@@ -29,7 +29,6 @@ import Orders from "./pages/Orders/Orders";
 import AdminTop from "./pages/AdminTop/AdminTop";
 import Error from "./pages/Error/Error";
 
-
 function App() {
   return (
     <div className="App">
@@ -63,7 +62,7 @@ function App() {
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>
-    </div>
+    </div >
   );
 }
 

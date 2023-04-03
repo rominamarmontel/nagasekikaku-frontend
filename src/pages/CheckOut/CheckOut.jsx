@@ -4,8 +4,14 @@ import PaymentMethod from '../../components/PaymentMethod/PaymentMethod'
 import './CheckOut.css'
 import Zenkaku2hankaku from '../../components/Zenkaku2hankaku/Zenkaku2hankaku'
 import axios from 'axios'
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb'
 
 const CheckOut = () => {
+  const items = [
+    { label: "HOME", link: "/" },
+    { label: "ショッピングカート", link: "/cart" },
+    { label: "購入の手続き", active: true },
+  ];
   const { user, setUser } = useContext(AuthContext)
   const [postalCode, setPostalCode] = useState(user.shippingAddress?.postalCode || '')
   const [prefecture, setPrefecture] = useState(user.shippingAddress?.prefecture || '')
@@ -70,56 +76,65 @@ const CheckOut = () => {
 
 
   return (
-    <div className='CheckOut'>
-      <h2>購入のお手続き</h2>
-      <div className='form'>
-        <form className='shippingAddress' onSubmit={handleSubmit}>
-          <h3>1. 配達先住所の確認</h3>
-          <table>
-            <tbody>
-              <tr>
-                <td><label htmlFor='postalCode'>郵便番号</label></td>
-                <td><input type="text" name='postalCode' id='postalCode' defaultValue={user.shippingAddress.postalCode} onChange={handlePostalCodeChange} placeholder='郵便番号' /></td>
-              </tr>
-              <tr>
-                <td><label htmlFor='city'>都道府県</label></td>
-                <td><input type="text" value={prefecture} name='city' id='city' placeholder='都道府県' disabled={true} /></td>
-              </tr>
-              <tr>
-                <td><label htmlFor='city'>市町村</label></td>
-                <td><input type="text" value={city} name='city' id='city' placeholder='市町村' disabled={true} /></td>
-              </tr>
-              <tr>
-                <td><label htmlFor='city'>町名</label></td>
-                <td><input type="text" value={town} name='town' id='town' placeholder='町名' disabled={true} /></td>
-              </tr>
-              <tr>
-                <td><label htmlFor='addressA'>番地</label></td>
-                <td><input type="text" value={addressA} name='addressA' id='addressA' placeholder='番地' onChange={handleAddressAChange} /></td>
-              </tr>
-              <tr>
-                <td><label htmlFor='addressB'>その他</label></td>
-                <td><input type="text" value={addressB} name='addressB' id='addressB' placeholder='アパート名、何号室など' onChange={handleAddressBChange} /></td>
-              </tr>
-              <tr>
-                <td><label htmlFor='phoneNumber'>電話番号</label></td>
-                <td><input type="text" value={phoneNumber} name='phoneNuber' id='phoneNumber' onChange={handlePhoneNumberChange} placeholder='0901234567' /></td>
-              </tr>
-            </tbody>
-          </table>
-          <div className="form-address-btns">
-            <button type='submit'>確認して次に進む</button>
-          </div>
-        </form>
-
+    <>
+      <div>
+        <Breadcrumb items={items} />
       </div>
-
-      {isAddressValid && (
-        <div className='form'>
-          <PaymentMethod />
+      <div className='CheckOut'>
+        <div className='title'>
+          <h2>商品の確認</h2>
+          <h2>購入のお手続き</h2>
         </div>
-      )}
-    </div>
+        <div className='container'>
+          <div className='process1'>
+            <form className='shippingAddress' onSubmit={handleSubmit}>
+              <h3>1. 配達先住所の確認</h3>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><label htmlFor='postalCode'>郵便番号</label></td>
+                    <td><input type="text" name='postalCode' id='postalCode' defaultValue={user.shippingAddress.postalCode} onChange={handlePostalCodeChange} placeholder='郵便番号' /></td>
+                  </tr>
+                  <tr>
+                    <td><label htmlFor='city'>都道府県</label></td>
+                    <td><input type="text" value={prefecture} name='city' id='city' placeholder='都道府県' disabled={true} /></td>
+                  </tr>
+                  <tr>
+                    <td><label htmlFor='city'>市町村</label></td>
+                    <td><input type="text" value={city} name='city' id='city' placeholder='市町村' disabled={true} /></td>
+                  </tr>
+                  <tr>
+                    <td><label htmlFor='city'>町名</label></td>
+                    <td><input type="text" value={town} name='town' id='town' placeholder='町名' disabled={true} /></td>
+                  </tr>
+                  <tr>
+                    <td><label htmlFor='addressA'>番地</label></td>
+                    <td><input type="text" value={addressA} name='addressA' id='addressA' placeholder='番地' onChange={handleAddressAChange} /></td>
+                  </tr>
+                  <tr>
+                    <td><label htmlFor='addressB'>その他</label></td>
+                    <td><input type="text" value={addressB} name='addressB' id='addressB' placeholder='アパート名、何号室など' onChange={handleAddressBChange} /></td>
+
+                  </tr>
+                  <tr>
+                    <td><label htmlFor='phoneNumber'>電話番号</label></td>
+                    <td><input type="text" value={phoneNumber} name='phoneNuber' id='phoneNumber' onChange={handlePhoneNumberChange} placeholder='0901234567' /></td>
+
+                  </tr>
+                </tbody>
+              </table>
+              <div className="form-address-btns">
+                <button type='submit'>確認して次に進む</button>
+              </div>
+            </form>
+          </div>
+
+          {isAddressValid && (
+            <PaymentMethod />
+          )}
+        </div>
+      </div>
+    </>
   )
 }
 

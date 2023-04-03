@@ -1,0 +1,39 @@
+.Orders {
+  padding: 0;
+  margin: 0 auto;
+  background-color: #ffffff;
+  width: 80vw;
+  height: calc(100vh - 10rem);
+}
+.Orders .title {
+  padding: 1rem;
+}
+.Orders table {
+  margin: 0 auto;
+}
+.Orders .container {
+  display: flex;
+}
+.Orders .CartCard ul{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+.Orders .CartCard li {
+  width: 120px;
+}
+.Orders .CartCard {
+  display: flex;
+  align-items: center;
+}
+.Orders .CartCard img {
+  vertical-align:top;
+}
+.Orders .CartCard .btn-delete {
+  display: none;
+}
+.Orders .validProduct {
+  border: 1px solid black;
+}

@@ -20,3 +20,13 @@ footer {
   bottom: 0;
   width: 90%;
 }
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">" !important;
+}
+.breadcrumb {
+  display: flex;
+  font-size: .8rem;
+}
+.breadcrumb a {
+  color:#0099cc;
+}

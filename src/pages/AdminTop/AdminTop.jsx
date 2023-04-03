@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 import myApi from '../../service/service'
 import UserCard from '../../components/UserCard/UserCard'
+import './AdminTop.css'
 
 const AdminTop = () => {
   const { user, setUser } = useContext(AuthContext)

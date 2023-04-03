@@ -1,25 +1,70 @@
 .CheckOut {
-  margin: 0;
   padding: 0;
+  margin: 0 auto;
   background-color: #ffffff;
-  width: 100%;
+  width: 80vw;
+  height: calc(100vh - 10rem);
 }
-
-.CheckOut .form {
-  margin: 0 5rem;
-}
-
-.CheckOut h2 {
-  margin: 1.5rem;
-}
-
-.CheckOut .shippingAddress h3 {
-  margin: 1.5rem;
-}
-
-.CheckOut .shippingAddress {
-  margin: 1.5rem;
+.CheckOut .container {
   display: flex;
-  align-items: center;
-  gap: 7rem;
+  justify-content: center;
+}
+.CheckOut .title {
+  padding: 1rem;
+}
+.CheckOut h3 {
+  padding-bottom: 1rem;
+}
+.CheckOut .process {
+  display: flex;
+}
+.CheckOut .shippingAddress, .PaymentMethod .PaymentMethod-form {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  border: 1px solid black;
+  padding: 2rem 4rem 2rem 2rem;
+  margin-bottom: 1rem;
+}
+.PaymentMethod .PaymentMethod-form {
+  margin-left: 1rem;
+}
+.CheckOut table, .PaymentMethod table,  .CreditCard table {
+  margin-bottom: 1rem;
+}
+.CheckOut .shippingAddress tr, .CreditCard tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.CheckOut .shippingAddress input {
+  width: 300px;
+  height: 30px;
+  border: 1px solid black;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+  padding: .5rem;
+  font-size: 1rem;
+}
+.CheckOut .form-address-btns, .PaymentMethod .form-card-btns {
+  display: flex;
+  justify-content: center;
+}
+/* Payment Method */
+
+
+/* Credit Card */
+.CreditCard .credit-card-form {
+  margin: 0;
+}
+.CreditCard input {
+  width: 300px;
+  height: 23px;
+  border: 1px solid black;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+  padding: .5rem;
+  font-size: 1rem;
 }

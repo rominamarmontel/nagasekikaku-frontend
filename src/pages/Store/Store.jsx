@@ -6,7 +6,7 @@ import myApi from "../../service/service";
 import "./Store.css";
 import { AuthContext } from "../../context/AuthContext";
 import Spinner from '../../components/Spinner/Spinner'
-
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 
 const Store = () => {
   const [products, setProducts] = useState(null)
@@ -39,8 +39,16 @@ const Store = () => {
   const filteredList = products.filter((item) => {
     return item.name.toLowerCase().includes(searchKeyword.toLowerCase());
   });
+
+  const items = [
+    { label: "HOME", link: "/" },
+    { label: "オンラインストア", link: "/store", active: true },
+  ];
   return (
     <>
+      <div>
+        <Breadcrumb items={items} />
+      </div>
       <div className="Store">
         <div className="container">
           <div className="title">

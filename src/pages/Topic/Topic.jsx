@@ -6,6 +6,7 @@ import "./Topic.css";
 import { AuthContext } from "../../context/AuthContext";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import Spinner from '../../components/Spinner/Spinner'
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 
 const Topic = () => {
   const [topics, setTopics] = useState(null)
@@ -28,8 +29,15 @@ const Topic = () => {
     setCreateIsOn(!createIsOn)
   };
 
+  const items = [
+    { label: "HOME", link: "/" },
+    { label: "お知らせ", link: "/topic", active: true },
+  ];
   return (
     <>
+      <div>
+        <Breadcrumb items={items} />
+      </div>
       <div className="Topic">
         <div className="container">
           <div className="title">
