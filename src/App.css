@@ -6,22 +6,26 @@
 body {
   margin: 0;
   padding: 0;
-  position: relative;
+  /* position: relative; */
 }
 header {
   min-width: 90%;
   height: 5rem;
 }
+
 main {
   width: 90%;
   margin: 0 auto;
+  padding-top: 6.5rem;
+  padding-bottom: 0.5rem;
 }
-footer {
+/* footer {
   bottom: 0;
   width: 90%;
-}
+  position: fixed;
+} */
 .breadcrumb-item + .breadcrumb-item::before {
-  content: ">" !important;
+  content: "　|　" !important;
 }
 .breadcrumb {
   display: flex;

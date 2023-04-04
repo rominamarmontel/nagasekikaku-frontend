@@ -23,4 +23,10 @@
 .ProductCard picture img {
   width: 100%;
   height: 250px;
+  display: block;
+  opacity: 1;
+  transition: .3s;
+}
+.ProductCard picture img:hover {
+  opacity: 0.5;
 }

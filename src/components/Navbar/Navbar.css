@@ -1,11 +1,3 @@
-.Navbar {
-  margin-top: 1rem;
-  display: flex;
-  justify-items: center;
-  justify-content: space-around;
-  align-items: center;
-  gap: 1rem;
-}
 .Navbar .logout {
   padding: 0.6em 1em;
   background-color: #fff;
@@ -14,4 +6,33 @@
 }
 .account-icon, .cart-icon {
   font-size: 1.5rem;
+}
+
+.Navbar {
+  margin-top: .5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  z-index: 1;
+}
+.Navbar--scroll {
+  transform: translateY(-100%);
+}
+
+.ScrollNavbar {
+  padding-top: .5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: opacity 0.5s ease-in-out; 
+}
+.ScrollNavbar--show {
+  opacity: 1;
 }

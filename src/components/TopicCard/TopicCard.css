@@ -27,4 +27,10 @@
 .TopicCard picture img {
   width: 100%;
   height: 500px;
+  display: block;
+  opacity: 1;
+  transition: .3s;
+}
+.TopicCard picture img:hover {
+  opacity: 0.5;
 }

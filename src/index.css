@@ -34,11 +34,6 @@ a:hover {
   color: gray;
 }
 
-main {
-  flex: 1;
-  min-height: 90vh;
-  margin: 0 auto;
-}
 h1 {
   font-size: 3.2em;
   font-weight: normal;
@@ -86,13 +81,3 @@ button:hover {
   background-color: rgb(179, 70, 15);
   border-color:  rgb(196, 70, 7);
 }
-input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  appearance: none;
-  margin: 0;
-  }
-  input[type="number"] {
-  -moz-appearance: textfield;
-  appearance: textfield;
-  }
