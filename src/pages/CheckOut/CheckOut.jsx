@@ -1,10 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
 import PaymentMethod from '../../components/PaymentMethod/PaymentMethod'
 import './CheckOut.css'
 import Zenkaku2hankaku from '../../components/Zenkaku2hankaku/Zenkaku2hankaku'
 import axios from 'axios'
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb'
+import { BiCart, BiBuildingHouse, BiCheck } from "react-icons/bi";
+import { MdPayment } from "react-icons/md";
 
 const CheckOut = () => {
   const items = [
@@ -81,9 +84,37 @@ const CheckOut = () => {
         <Breadcrumb items={items} />
       </div>
       <div className='CheckOut'>
-        <div className='title'>
-          <h2>商品の確認</h2>
-          <h2>購入のお手続き</h2>
+        <div className="process-checkout">
+          <div className="process-box">
+            <Link to='/cart'>
+              <div className="circle">
+                <BiCart className='cart-icon' />
+              </div>
+              <p>商品情報</p>
+            </Link>
+          </div>
+          <hr />
+          <div className="process-box">
+            <div className="circle">
+              <BiBuildingHouse className='cart-icon' />
+            </div>
+            <p>配達先情報</p>
+          </div>
+          <div />
+          <hr />
+          <div className="process-box">
+            <div className="circle">
+              <MdPayment className='cart-icon' />
+            </div>
+            <p>お支払方法</p>
+          </div>
+          <hr />
+          <div className="process-box">
+            <div className="circle">
+              <BiCheck className='cart-icon' />
+            </div>
+            <p>最終確認</p>
+          </div>
         </div>
         <div className='container'>
           <div className='process1'>
@@ -133,7 +164,7 @@ const CheckOut = () => {
             <PaymentMethod />
           )}
         </div>
-      </div>
+      </div >
     </>
   )
 }

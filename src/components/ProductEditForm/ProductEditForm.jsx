@@ -63,7 +63,7 @@ const ProductEditForm = (props) => {
         <div className="container">
           <div className="title">
             <h2>商品の編集</h2>
-            <h5>管理者専用画面</h5>
+            <h5>【管理者画面】</h5>
           </div>
           <form onSubmit={editHandler} action="">
             <div className="form-box">
@@ -142,7 +142,9 @@ const ProductEditForm = (props) => {
                 </div>
               </div>
             </div>
-            <button>編集する</button>
+            <div className="edit-btns">
+              <button>編集する</button>
+            </div>
           </form>
         </div>
       </div>

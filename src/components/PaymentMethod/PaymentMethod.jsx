@@ -35,25 +35,23 @@ const PaymentMethod = () => {
       <div className='process2'>
         <form onSubmit={handleSubmit} className='PaymentMethod-form'>
           <h3>2.支払い方法の確認</h3>
-          <table>
-            <tbody>
-              <tr>
-                <td><input type='radio' id='creditCard' name='paymentMethod' value='creditCard' checked={paymentMethod === 'creditCard'} onChange={handlePaymentMethodChange} /></td>
-                <td><label htmlFor='creditCard'>クレジットカード</label></td>
-              </tr>
 
-              <tr>
-                <td><input type='radio' id='paypal' name='paymentMethod' value='paypal' checked={paymentMethod === 'paypal'} onChange={handlePaymentMethodChange} /></td>
-                <td><label htmlFor='paypal'>Paypal</label></td>
-              </tr>
-            </tbody>
-          </table>
+          <div className='method-box'>
+            <div>
+              <input type='radio' id='creditCard' name='paymentMethod' value='creditCard' checked={paymentMethod === 'creditCard'} onChange={handlePaymentMethodChange} />
+              <label htmlFor='creditCard'>クレジットカード</label>
+            </div>
+            <div>
+              <input type='radio' id='paypal' name='paymentMethod' value='paypal' checked={paymentMethod === 'paypal'} onChange={handlePaymentMethodChange} />
+              <label htmlFor='paypal'>Paypal</label>
+            </div>
+          </div>
+          {paymentMethod === 'creditCard' && <CreditCard />}
+          {paymentMethod === 'paypal' && <PayPal />}
           <div className="form-card-btns">
             <button type='submit'>決済手続きをする</button>
           </div>
         </form>
-        {paymentMethod === 'creditCard' && <CreditCard />}
-        {paymentMethod === 'paypal' && <PayPal />}
       </div>
 
     </div>

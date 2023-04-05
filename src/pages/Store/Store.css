@@ -3,19 +3,25 @@
   padding: 0;
   background-color: transparent;
   width: 80vw;
-  /* height: calc(100vh - 12rem);
-  overflow-y: scroll; */
 }
 .Store .title {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 2rem;
+  align-items: center;
+  margin-top: 2rem;
+  position: relative;
+  margin-bottom: 1rem;
 }
-.Store .title div {
+.Store .store-title {
+  position: absolute;
+  right:500px;
+  top: -15px;
+  text-align: center;
+}
+.Store .title div{
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
 }
 .Store .btn-product-create {
   margin-right: 15rem;
@@ -36,3 +42,15 @@
   gap: calc(20% - 11.7rem);
 }
 
+
+/* News-banner */
+/* バナー本体 */
+.Store .news-banner {
+  display: block;
+  height: 30px;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-line-box);
+  border-top: 1px solid var(--color-line-box);
+  margin-bottom: 3rem;
+}

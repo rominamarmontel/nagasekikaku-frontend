@@ -75,44 +75,50 @@ const AddAddress = () => {
         <Breadcrumb items={items} />
       </div>
       <div className='FormAddAddress'>
-        <h2>配達先住所の登録</h2>
-        <form onSubmit={handleSubmit}>
-          <table>
-            <tbody>
-              <tr>
-                <td><label htmlFor='postalCode'>郵便番号</label></td>
-                <td><input type="text" className='postalCode' id='postalCode' name='postalCode' placeholder='例)1234567' onChange={handlePostalCodeChange} /></td>
-              </tr>
-              <tr>
-                <td><label htmlFor='prefecture'>都道府県</label></td>
-                <td><input type="text" value={prefecture} name='prefecture' id='prefecture' placeholder='都道府県' disabled={true} /></td>
-              </tr>
-              <tr>
-                <td><label htmlFor='city'>市町村</label></td>
-                <td><input type="text" value={city} name='city' id='city' placeholder='市町村' disabled={true} /></td>
-              </tr>
-              <tr>
-                <td><label htmlFor='town'>町名</label></td>
-                <td><input type="text" value={town} name='city' id='town' placeholder='町名' disabled={true} /></td>
-              </tr>
-              <tr>
-                <td><label htmlFor='addressA'>番地</label></td>
-                <td><input type="text" value={addressA} name='addressA' id='addressA' onChange={handleAddressAChange} placeholder='それ以外の住所' /></td>
-              </tr>
-              <tr>
-                <td><label htmlFor='addressB'>その他</label></td>
-                <td><input type="text" value={addressB} name='addressB' id='addressB' onChange={handleAddressBChange} placeholder='アパート・マンション名、号室等' /></td>
-              </tr>
-              <tr>
-                <td><label htmlFor='phoneNumber'>携帯電話</label></td>
-                <td><input type="text" value={phoneNumber} name='phoneNumber' id='phoneNumber' onChange={handlePhoneNumberChange} placeholder='09012345678' /></td>
-              </tr>
-            </tbody>
-          </table>
-          <button>登録する</button>
-          <Link to='/profile'>キャンセル</Link>
-        </form>
-        <div>{message}</div>
+        <div className='title'>
+          <h2>配達先住所の登録</h2>
+        </div>
+        <div className='container'>
+          <form onSubmit={handleSubmit}>
+            <table>
+              <tbody>
+                <tr>
+                  <td><label htmlFor='postalCode'>郵便番号</label></td>
+                  <td><input type="text" className='postalCode' id='postalCode' name='postalCode' placeholder='例)1234567' onChange={handlePostalCodeChange} /></td>
+                </tr>
+                <tr>
+                  <td><label htmlFor='prefecture'>都道府県</label></td>
+                  <td><input type="text" value={prefecture} name='prefecture' id='prefecture' placeholder='都道府県' disabled={true} /></td>
+                </tr>
+                <tr>
+                  <td><label htmlFor='city'>市町村</label></td>
+                  <td><input type="text" value={city} name='city' id='city' placeholder='市町村' disabled={true} /></td>
+                </tr>
+                <tr>
+                  <td><label htmlFor='town'>町名</label></td>
+                  <td><input type="text" value={town} name='city' id='town' placeholder='町名' disabled={true} /></td>
+                </tr>
+                <tr>
+                  <td><label htmlFor='addressA'>番地</label></td>
+                  <td><input type="text" value={addressA} name='addressA' id='addressA' onChange={handleAddressAChange} placeholder='それ以外の住所' /></td>
+                </tr>
+                <tr>
+                  <td><label htmlFor='addressB'>その他</label></td>
+                  <td><input type="text" value={addressB} name='addressB' id='addressB' onChange={handleAddressBChange} placeholder='アパート・マンション名、号室等' /></td>
+                </tr>
+                <tr>
+                  <td><label htmlFor='phoneNumber'>携帯電話</label></td>
+                  <td><input type="text" value={phoneNumber} name='phoneNumber' id='phoneNumber' onChange={handlePhoneNumberChange} placeholder='09012345678' /></td>
+                </tr>
+              </tbody>
+            </table>
+            <div className='save-btns'>
+              <button>登録する</button>
+              <Link to='/profile' className='cancel'>キャンセル</Link>
+            </div>
+          </form>
+          <div>{message}</div>
+        </div>
       </div>
     </>
   )

@@ -46,8 +46,8 @@ const TopicCreate = () => {
       <div className='TopicCreate'>
         <div className='container'>
           <div className='title'>
-            <h2>お知らせを作成する</h2>
-            <h5>管理者画面</h5>
+            <h2>お知らせの新規作成</h2>
+            <h5>【管理者画面】</h5>
           </div>
           <form onSubmit={handleSubmit}>
             <div className='form-box'>
@@ -80,7 +80,9 @@ const TopicCreate = () => {
                 </div>
               </div>
               <div>{message}</div>
-              <button>トピックを作成する</button>
+              <div className='create-btns'>
+                <button>トピックを作成する</button>
+              </div>
               {showConfetti && <Confetti recycle={false} />}
             </div>
           </form>

@@ -54,7 +54,7 @@ const ProductCreate = () => {
         <div className='container'>
           <div className='title'>
             <h2>商品の新規作成</h2>
-            <h5>管理者専用画面</h5>
+            <h5>【管理者画面】</h5>
           </div>
           <form onSubmit={handleSubmit}>
             <div className='form-box'>
@@ -132,8 +132,10 @@ const ProductCreate = () => {
               </div>
             </div>
             <div>{message}</div>
-            <button>作成する</button>
-            {showConfetti && <Confetti recycle={false} />}
+            <div className='create-btns'>
+              <button>作成する</button>
+              {showConfetti && <Confetti recycle={false} />}
+            </div>
           </form>
         </div>
       </div>

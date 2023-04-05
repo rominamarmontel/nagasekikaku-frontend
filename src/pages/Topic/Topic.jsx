@@ -42,14 +42,21 @@ const Topic = () => {
         <div className="container">
           <div className="title">
             <div>
+              {user && user.isAdmin && <Link to={'/admin/topics/create'} className='btn-topic-create'>新規作成</Link>}
+            </div>
+            <div className="info-title">
               <h2>お知らせ</h2>
               <h5>Information from KANRAKU</h5>
             </div>
-            <div>
-              {user && user.isAdmin && <Link to={'/admin/topics/create'} className='btn-topic-create'>新規作成</Link>}
-            </div>
             <p><FaTwitter /><FaYoutube /><FaFacebook /><FaInstagram /></p>
           </div>
+
+          <div class="news-banner">
+            <div class="news-banner__content">
+              <p>飯田橋に歓楽宝斎の新店舗がオープンしました！たくさんのお宝があなたをお待ちしております！</p>
+            </div>
+          </div>
+
           <div className="topicCard">
             {topics.map((topic) => {
               return <TopicCard key={topic._id} topic={topic} />;

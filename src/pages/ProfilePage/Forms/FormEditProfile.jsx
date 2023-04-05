@@ -45,18 +45,30 @@ const EditInformation = () => {
         <Breadcrumb items={items} />
       </div>
       <div className='FormEditProfile'>
-        <h2>プロフィールの編集</h2>
-        <form onSubmit={handleSubmit} action=''>
-          <label htmlFor='username'>お名前</label>
-          <input type="text" value={username} name='username' autoComplete='current-username' id='username' onChange={handleUsernameChange} placeholder='' />
-
-          <label htmlFor='email'>メールアドレス</label>
-          <input type="text" value={email} name='email' id='email' autoComplete='current-email' onChange={handleEmailChange} placeholder='' />
-
-          <button>保存</button>
-          <Link to='/profile'>キャンセル</Link>
-        </form>
-        <div>{message}</div>
+        <div className='title'>
+          <h2>プロフィールの編集</h2>
+        </div>
+        <div className='container'>
+          <form onSubmit={handleSubmit} action=''>
+            <div className='form-box'>
+              <div className='form-box-child'>
+                <div>
+                  <label htmlFor='username'>お名前</label>
+                  <input type="text" value={username} name='username' autoComplete='current-username' id='username' onChange={handleUsernameChange} placeholder='' />
+                </div>
+                <div>
+                  <label htmlFor='email'>メールアドレス</label>
+                  <input type="text" value={email} name='email' id='email' autoComplete='current-email' onChange={handleEmailChange} placeholder='' />
+                </div>
+              </div>
+              <div className='save-btns'>
+                <button>保存</button>
+                <Link to='/profile' className='cancel'>キャンセル</Link>
+              </div>
+            </div>
+          </form>
+          <div>{message}</div>
+        </div>
       </div>
     </>
   )

@@ -6,6 +6,8 @@ import './Cart.css'
 import Spinner from '../../components/Spinner/Spinner'
 import { FaArrowRight } from 'react-icons/fa'
 import { AuthContext } from '../../context/AuthContext'
+import { BiCart, BiBuildingHouse, BiCheck } from "react-icons/bi";
+import { MdPayment } from "react-icons/md";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 
 
@@ -67,8 +69,35 @@ const Cart = () => {
       ) : (
         <>
           <div className="Cart">
-            <div className="title">
-              <h2>商品の確認</h2>
+            <div className="process-checkout">
+              <div className="process-box">
+                <div className="circle">
+                  <BiCart className='cart-icon' />
+                </div>
+                <p>商品情報</p>
+              </div>
+              <hr />
+              <div className="process-box">
+                <div className="circle">
+                  <BiBuildingHouse className='cart-icon' />
+                </div>
+                <p>配達先情報</p>
+              </div>
+              <div />
+              <hr />
+              <div className="process-box">
+                <div className="circle">
+                  <MdPayment className='cart-icon' />
+                </div>
+                <p>お支払方法</p>
+              </div>
+              <hr />
+              <div className="process-box">
+                <div className="circle">
+                  <BiCheck className='cart-icon' />
+                </div>
+                <p>最終確認</p>
+              </div>
             </div>
             <div className="container">
               <div className="service-box">

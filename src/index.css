@@ -3,6 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+
 :root {
   /* font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif; */
   font-family: 'Noto Serif JP', serif;
@@ -13,9 +15,23 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --color-primary: #000000;
+  --color-primary-light: #808080;
+  --body-bg-color: #FFFFFF;
+  --body-txt-color: #000000;
+  --body-txt-color-light: #777777;
   --color-orange:rgb(237, 75, 11);
-  --color-red:rgb(170, 22, 22);
+  --color-red:#c0392b;
   --color-blue:#002247;
+  --color-line-box:#DDDDDD;
+  --color-link-red:#BD100E;
+  --color-link-red-hover: #5E0807;
+  --color-link-orange: #FF6666;
+  --color-link-orange-hover: #DD6666;
+  --body-font-arial: 'Arial', 'sans-serif';
+  --body-font-roboto: 'Roboto';
+  --body-font-helvetica: 'HelveticaNeuve-Light';
+  --body-font-sawarabi: 'Sawarabi Mincho', 'serif'
 }
 * {
   box-sizing: border-box;
@@ -51,7 +67,6 @@ h5 {
   font-weight: 400;
   font-size: 1.2rem;
   color: var(--color-red);
-  padding-bottom: 2rem;
 }
 h6 {
   font-size: 1rem;
@@ -60,6 +75,7 @@ h6 {
 }
 p {
   font-family: 'Noto Serif JP', serif;
+  font-family: var(--body-font-sawarabi);
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: .1rem;
@@ -80,4 +96,12 @@ button {
 button:hover {
   background-color: rgb(179, 70, 15);
   border-color:  rgb(196, 70, 7);
+}
+input {
+  width: 400px;
+  height: 40px ;
+  border: 2px solid black;
+  padding: .5rem;
+  margin-bottom: 1rem;
+  margin-top: .2rem;
 }

@@ -1,13 +1,10 @@
 .TopicCard {
-  margin: 0 auto 10rem auto;
-}
-.TopicCard .title-topic {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  border-bottom: 2px solid rgb(186, 186, 186);
+  justify-content: flex-start;
+}
+.TopicCard .title-topic {
   margin-bottom: 3rem;
-  padding-bottom: 1rem;
 }
 .TopicCard .description {
   margin-top: 2rem;
@@ -23,10 +20,11 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  margin-bottom: 1rem;
 }
 .TopicCard picture img {
-  width: 100%;
-  height: 500px;
+  width: auto;
+  height: 180px;
   display: block;
   opacity: 1;
   transition: .3s;

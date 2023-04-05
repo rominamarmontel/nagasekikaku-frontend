@@ -1,17 +1,16 @@
 .ProfilePage {
   margin: 0 auto;
   padding: 0;
-  background-color: #ffffff;
+  background-color: transparent;
   width: 80vw;
-  height: calc(100vh - 12rem);
-  overflow-y: scroll;
 }
 .ProfilePage .container {
-  width: 80%;
   margin: 0 auto;
+  width: 80%;
 }
 .ProfilePage .title {
   padding: 2rem;
+  text-align: center;
 }
 .ProfilePage .UserProfile {
   display: flex;

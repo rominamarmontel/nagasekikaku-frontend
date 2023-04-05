@@ -53,14 +53,18 @@ const Store = () => {
         <div className="container">
           <div className="title">
             <div>
+              {user && user.isAdmin && <Link to={'/admin/products/create'} className='btn-product-create'>新規作成</Link>}
+            </div>
+            <div className="store-title">
               <h2>オンラインストア</h2>
               <h5>Kanraku Selection</h5>
             </div>
             <div>
-              {user && user.isAdmin && <Link to={'/admin/products/create'} className='btn-product-create'>新規作成</Link>}
-            </div>
-            <div>
               <Search handleInputChange={handleInputChange} handleSearch={handleSearch} />
+            </div>
+          </div>
+          <div class="news-banner">
+            <div class="news-banner__content">
             </div>
           </div>
           <div className="productCard">

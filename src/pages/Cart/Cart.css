@@ -1,19 +1,63 @@
 .Cart {
   margin: 0 auto;
   padding: 0;
-  background-color: #ffffff;
+  background-color:transparent;
   width: 80vw;
-  height: calc(100vh - 12rem);
-  overflow-y: scroll;
 }
 .Cart .container {
   margin: 0 auto;
 }
-.Cart .title {
-  padding: .5rem;
+/* Checkout Process */
+.Cart .process-checkout {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  margin: 1rem 0 3rem 0;
+}
+.Cart hr {
+  width: 700px;
+  border: .5px solid;
+}
+.Cart .process-box {
+  background-color: transparent;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Cart .process-box p {
+  margin: 0;
+  padding: 0;
+}
+.Cart .process-box:first-child .circle {
+  background-color: #666666;
+  color:#ffff;
+}
+.Cart .mid-line {
+  width: 200px;
+  height: 140px;
+  border-top: 1px solid #666666;
+  flex-shrink: 0;
+  z-index: 2;
+}
+.Cart .circle {
+  background-color: #ffff;
+  height: 50px;
+  width: 50px;
   border: 1px solid black;
   display: inline-block;
-  margin: 2rem;
+  border-radius: 50%;
+  position: relative;
+}
+.Cart .cart-icon {
+  position: absolute;
+  top:6px;
+  right:7px;
+  height: 35px;
+  width: 35px;
+  font-weight: normal;
 }
 .Cart .container .cart-details {
   display:flex;
@@ -33,7 +77,8 @@
 .Cart .CartCard {
   display: flex;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid var(--color-line-box);
+  background-color: #ffff;
 }
 .Cart .CartCard img {
   vertical-align:top;
