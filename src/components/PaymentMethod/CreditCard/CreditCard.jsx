@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Zenkaku2hankaku from '../../Zenkaku2hankaku/Zenkaku2hankaku';
 
 function CreditCard(props) {
   const [formData, setFormData] = useState({
@@ -10,31 +11,59 @@ function CreditCard(props) {
   });
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target
-    setFormData((prevState) => ({ ...prevState, [name]: value }))
+    const target = event.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+
+    const formDataCopy = { ...formData };
+    formDataCopy[name] = name === "cvv" || name === "cardNumber" || name === "expirationMonth" || name === "expirationYear" || name === "cardHolder"
+      ? Zenkaku2hankaku(value)
+      : value; // valueがカードのセキュリティーコードである場合は、Zenkaku2hankaku関数で変換する
+    setFormData(formDataCopy);
   };
 
-  const handleSubmit = (event) => {
+  function validateCreditCardForm(event) {
     event.preventDefault();
-    // perform validation of form data
+    const cardNumberRegex = /^[0-9]{16}$/;
+    const cvvRegex = /^[0-9]{3}$/;
+    const currentDate = new Date();
+    const currentMonth = (currentDate.getMonth() + 1).toString().padStart(2, "0");
+    const currentYear = currentDate.getFullYear().toString().slice(-2);
+
     if (
+      formData.cardNumber.length === 16 &&
       formData.cardNumber !== "" &&
+      cardNumberRegex.test(formData.cardNumber) &&
       formData.cardHolder !== "" &&
-      formData.expirationMonth !== "" &&
-      formData.expirationYear !== "" &&
-      formData.cvv !== ""
+      formData.expirationMonth.length === 2 &&
+      formData.expirationMonth.length !== "" &&
+      formData.expirationYear.length === 2 &&
+      formData.expirationYear.length !== "" &&
+      formData.cvv.length === 3 &&
+      formData.cvv !== "" &&
+      cvvRegex.test(formData.cvv)
     ) {
-      // call parent function to submit order
-      props.onOrderSubmit()
+      props.onOrderSubmit();
     } else {
-      alert("記入ができていない箇所があります")
+      if (formData.cardNumber.length !== 16) {
+        alert('カード番号の桁数を確認してください');
+      } else if (formData.expirationMonth.length !== 2 || formData.expirationYear.length !== 2) {
+        alert('有効期限の月もしくは年の年号を正確に記してください。例) 8月の場合は"08"')
+      } else if (formData.cvv.length !== 3) {
+        alert('カード裏面に記載された3桁のCVVコードを入力してください');
+      } else if (formData.expirationYear < currentYear) {
+        alert('カードの有効期限が過ぎています。')
+      } else if (formData.expirationYear === currentYear && formData.expirationMonth <= currentMonth) {
+        alert('カードの有効期限が過ぎています。');
+      }
+      return;
     }
   }
 
   return (
     <div className='CreditCard'>
       <div className='process3'>
-        <form className='credit-card-form' onSubmit={handleSubmit} >
+        <form className='credit-card-form' onSubmit={validateCreditCardForm} >
           <h3>3. カード情報の入力</h3>
           <table>
             <tbody>
@@ -64,7 +93,9 @@ function CreditCard(props) {
               </tr>
             </tbody>
           </table>
-          {/* <button type="submit">確認して次に進む</button> */}
+          <div className="form-card-btns">
+            <button type='submit'>決済手続きをする</button>
+          </div>
         </form>
       </div>
     </div>

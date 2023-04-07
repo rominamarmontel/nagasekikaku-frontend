@@ -10,7 +10,6 @@ import { BiCart, BiBuildingHouse, BiCheck } from "react-icons/bi";
 import { MdPayment } from "react-icons/md";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 
-
 const Cart = () => {
   const items = [
     { label: "HOME", link: "/" },

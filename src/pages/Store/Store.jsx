@@ -63,8 +63,8 @@ const Store = () => {
               <Search handleInputChange={handleInputChange} handleSearch={handleSearch} />
             </div>
           </div>
-          <div class="news-banner">
-            <div class="news-banner__content">
+          <div className="news-banner">
+            <div className="news-banner__content">
             </div>
           </div>
           <div className="productCard">

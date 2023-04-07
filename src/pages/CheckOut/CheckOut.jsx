@@ -8,6 +8,7 @@ import axios from 'axios'
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb'
 import { BiCart, BiBuildingHouse, BiCheck } from "react-icons/bi";
 import { MdPayment } from "react-icons/md";
+import CreditCard from '../../components/PaymentMethod/CreditCard/CreditCard'
 
 const CheckOut = () => {
   const items = [
@@ -24,6 +25,7 @@ const CheckOut = () => {
   const [addressB, setAddressB] = useState(user.shippingAddress?.addressB || '')
   const [phoneNumber, setPhoneNumber] = useState(user.shippingAddress?.phoneNumber || '')
   const [isAddressValid, setIsAddressValid] = useState(false)
+
 
   const handlePostalCodeChange = async (event) => {
     const value = Zenkaku2hankaku(event.target.value)

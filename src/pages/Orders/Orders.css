@@ -12,7 +12,10 @@
   flex-direction: column;
   justify-content: center;
 }
-
+.Orders .final-order-container {
+  display: flex;
+  justify-content: space-between;
+}
 
 /* Service-box */
 .Orders .service-box {
@@ -84,6 +87,7 @@
 .Orders .process-box p {
   margin: 0;
   padding: 0;
+  color: black;
 }
 .Orders .mid-line {
   width: 200px;

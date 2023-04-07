@@ -7,18 +7,22 @@ import './Orders.css'
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb'
 import { BiCart, BiBuildingHouse, BiCheck } from "react-icons/bi";
 import { MdPayment } from "react-icons/md";
+import Spinner from '../../components/Spinner/Spinner'
 
 
 const Orders = () => {
   const items = [
     { label: "HOME", link: "/" },
     { label: "ショッピングカート", link: "/cart" },
-    { label: "購入の手続き", link: "/checkout" },
-    { label: "お支払いの手続き", active: true },
+    { label: "配達先情報", link: "/checkout" },
+    { label: "最終確認", active: true },
   ];
   const { user, setUser } = useContext(AuthContext)
   const [product, setProduct] = useState(null)
   const [paymentMethod, setPaymentMethod] = useState('')
+  const [totalPrice, setTotalPrice] = useState(0)
+  const [finalPrice, setFinalPrice] = useState(0)
+  const shippingFee = totalPrice >= 10000 ? 0 : 1500;
 
   if (!user) {
     return <Spinner />
@@ -32,13 +36,24 @@ const Orders = () => {
       .catch((error) => console.error(error));
   }, []);
 
-  // useEffect(() => {
-  //   const url = '/cart/paymentMethod'
-  //   myApi
-  //     .get(url)
-  //     .then((res) => { setPaymentMethod(res.data) })
-  //     .catch((error) => console.error(error))
-  // })
+  useEffect(() => calculateTotalPrice(), [product])
+
+  useEffect(() => {
+    const newFinalPrice = Number(shippingFee) + Number(totalPrice);
+    setFinalPrice(newFinalPrice);
+  }, [shippingFee, totalPrice]);
+
+  function calculateTotalPrice() {
+    if (!product) return
+    const allPrices = product.reduce((acc, val) => {
+      return acc + val.qty * val.product.price
+    }, 0)
+    const formattedPrice = allPrices.toLocaleString();
+    const numericPrice = Number(formattedPrice.replace(/,/g, ''));
+    setTotalPrice(numericPrice);
+  }
+  if (!product) return <Spinner />
+
   return (
     <>
       <div>
@@ -83,59 +98,72 @@ const Orders = () => {
             </div>
           </div>
 
+          <div className='final-order-container'>
+            <div className='service-box'>
+              <div className='user-info'>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td className='first-td'>お名前</td>
+                      <td className='second-td'>{user.username}</td>
+                    </tr>
+                    <tr>
+                      <td>配達先住所</td>
+                      <td>〒{user.shippingAddress.postalCode}</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>{user.shippingAddress.prefecture}{user.shippingAddress.city}</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>{user.shippingAddress.town}{user.shippingAddress.addressA}</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>{user.shippingAddress.addressB}</td>
+                    </tr>
+                    <tr>
+                      <td>電話番号</td>
+                      <td>{user.shippingAddress.phoneNumber}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-          <div className='service-box'>
-            <div className='user-info'>
-              <table>
-                <tbody>
-                  <tr>
-                    <td className='first-td'>お名前</td>
-                    <td className='second-td'>{user.username}</td>
-                  </tr>
-                  <tr>
-                    <td>配達先住所</td>
-                    <td>〒{user.shippingAddress.postalCode}</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>{user.shippingAddress.prefecture}{user.shippingAddress.city}</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>{user.shippingAddress.town}{user.shippingAddress.addressA}</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>{user.shippingAddress.addressB}</td>
-                  </tr>
-                  <tr>
-                    <td>電話番号</td>
-                    <td>TEL: {user.shippingAddress.phoneNumber}</td>
-                  </tr>
-                </tbody>
-              </table>
+
+              {product && (
+                <div className='validProduct'>
+                  {
+                    product.map((item) => {
+                      return <CartCard key={item.product._id} item={item} />
+                    })
+                  }
+                </div>
+              )}
             </div>
-
-
-            {product && (
-              <div className='validProduct'>
-                {
-                  product.map((item) => {
-                    return <CartCard key={item.product._id} item={item} />
-                  })
-                }
+            <div className='validPayment'>
+              <div className="order-shokei-section">
+                <span>小計</span>
+                <span>{totalPrice.toLocaleString()} 円</span>
               </div>
-            )}
-          </div>
-          <div className='validPayment'>
-            {user && (
-              <div>
-                {paymentMethod === 'creditCard' &&
-                  <CreditCardPayment />}
-                {paymentMethod === 'paypal' &&
-                  <PayPalPayment />}
+              <div className="order-soryo-section">
+                <span>送料</span>
+                <span>{shippingFee.toLocaleString()} 円</span>
               </div>
-            )}
+              <div className="order-gokei-section">
+                <span>合計</span>
+                <span>{finalPrice.toLocaleString()} 円</span>
+              </div>
+              {user && (
+                <div>
+                  {paymentMethod === 'creditCard' &&
+                    <CreditCardPayment />}
+                  {paymentMethod === 'paypal' &&
+                    <PayPalPayment />}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

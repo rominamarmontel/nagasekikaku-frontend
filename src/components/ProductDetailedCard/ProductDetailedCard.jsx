@@ -4,6 +4,8 @@ import "./ProductDetailedCard.css";
 import myApi from "../../service/service";
 import { AuthContext } from "../../context/AuthContext";
 import ProductEditForm from "../ProductEditForm/ProductEditForm";
+import { BiCaretRight, BiCaretLeft } from 'react-icons/bi'
+import SwiperCard from "../SwiperCard/SwiperCard";
 
 
 const ProductDetailedCard = () => {
@@ -23,8 +25,8 @@ const ProductDetailedCard = () => {
   const [price, setPrice] = useState(0)
   const [description, setDescription] = useState('')
   const [countInStock, setCountInStock] = useState(0)
+  const [count, setCount] = useState(0)
 
-  //Click Cart button
   const addToCartHandler = async () => {
     if (!user) {
       return navigate("/login");
@@ -75,90 +77,95 @@ const ProductDetailedCard = () => {
   return (
     <div className="ProductDetailedCard">
       <div className="container">
-        {user && user.isAdmin && (
-          <button className="btn-block" type="button" onClick={editHandler}>
-            編集する
-          </button>
-        )}
-        {user && user.isAdmin && (
-          <button className="btn-block" type="button" onClick={deleteHandler}>
-            削除する
-          </button>
-        )}
+        <div className="btns-container">
+          {user && user.isAdmin && (
+            <button className="btn-block" type="button" onClick={editHandler}>
+              編集する
+            </button>
+          )}
+          {user && user.isAdmin && (
+            <button className="btn-block" type="button" onClick={deleteHandler}>
+              削除する
+            </button>
+          )}
+        </div>
         {editIsOn ? (
           <ProductEditForm />
         ) : (
           <>
-            <div className="product-details">
-              <picture>
-                <img src={product.image} alt={product.name} />
-              </picture>
+            <div className="product-details-container">
+              <div className="product-details">
+                <SwiperCard product={product} />
+                {/* <picture>
+                  <img src={product.image} alt={product.name} />
+                </picture> */}
+                <div></div>
+              </div>
               <div className="product-details-right">
-                <div>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td></td>
-                        <td>
-                          <h2 className="h2">{product.name}</h2>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td>
-                          <h5 className="h5">{product.category}</h5>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td>
-                          <p className="price">{price.toLocaleString()} 円<small>(税込)</small></p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <label htmlFor="brand"><h4>ブランド名：</h4></label>
-                        </td>
-                        <td>
-                          <p className="brand">{product.brand}</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          {" "}<h4>
-                            {product.countInStock > 0
-                              ? `在庫：`
-                              : `在庫なし：`}</h4>
-                        </td>
-                        <td>
-                          <p className="countInStock">
-                            {" "}
-                            {product.countInStock > 0
-                              ? `${product.countInStock}`
-                              : "0"}
-                          </p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <label htmlFor="qty"><h4>数量：</h4></label>
-                        </td>
-                        <td className="countInstock">
-                          <input
-                            type="number"
-                            name="qty"
-                            min="0"
-                            max={product.countInStock}
-                            value={qty}
-                            onChange={({ target }) =>
-                              setQty(Number(target.value))
-                            }
-                          />
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div style={{ color: '#FF0000' }}>{message}</div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td></td>
+                      <td>
+                        <h2 className="h2">{product.name}</h2>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>
+                        <h5 className="h5">{product.category}</h5>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>
+                        <h5 className="price">{price.toLocaleString()} 円<small>(税込)</small></h5>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label htmlFor="brand"><h4>ブランド名：</h4></label>
+                      </td>
+                      <td>
+                        <p className="brand">{product.brand}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        {" "}<h4>
+                          {product.countInStock > 0
+                            ? `在庫：`
+                            : `在庫なし：`}</h4>
+                      </td>
+                      <td>
+                        <p className="countInStock">
+                          {" "}
+                          {product.countInStock > 0
+                            ? `${product.countInStock}`
+                            : "0"}
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label htmlFor="qty"><h4>数量：</h4></label>
+                      </td>
+                      <td className="Counter">
+                        <button onClick={() => {
+                          if (qty > 0) {
+                            setQty(qty - 1);
+                          }
+                        }}><BiCaretLeft className="left-icon" /></button>{qty}<button onClick={() => {
+                          if (qty < product.countInStock) {
+                            setQty(qty + 1);
+                          }
+                        }}><BiCaretRight className="right-icon" /></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div style={{ color: '#FF0000' }}>{message}</div>
+                <div className="button-cart">
                   <button
                     onClick={addToCartHandler}
                     className="btn-cart"
@@ -167,12 +174,13 @@ const ProductDetailedCard = () => {
                   >
                     購入する
                   </button>
-                  <div className="description">
-                    <p>{product.description}</p>
-                  </div>
+                </div>
+                <div className="description">
+                  <p>{product.description}</p>
                 </div>
               </div>
             </div>
+
           </>
         )}
       </div>
