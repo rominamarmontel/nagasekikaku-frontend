@@ -8,7 +8,7 @@ const ProductCreate = () => {
   const [name, setName] = useState('')
   const [image, setImage] = useState('')
   const [brand, setBrand] = useState('')
-  const [category, setCategory] = useState('')
+  const [category, setCategory] = useState('選択')
   const [price, setPrice] = useState(0)
   const [countInStock, setCountInStock] = useState(0)
   const [description, setDescription] = useState('')
@@ -31,7 +31,6 @@ const ProductCreate = () => {
       formData.append("description", description);
 
       const productToCreate = { name, image, brand, category, description, price, countInStock }
-
       const response = await myApi.post('/products/create', formData)
       if (!productToCreate) {
         setMessage('Please enter product information')
@@ -47,6 +46,10 @@ const ProductCreate = () => {
       console.error(error)
     }
   }
+  const handleSelect = e => {
+    setCategory(e.target.value);
+    console.log("selected", e.target.value);
+  };
 
   return (
     <>
@@ -82,13 +85,14 @@ const ProductCreate = () => {
                 </div>
                 <label htmlFor="category">カテゴリー</label>
                 <div>
-                  <input
-                    type='text'
-                    value={category}
-                    name="category"
-                    id="category"
-                    onChange={(event) => setCategory(event.target.value)}
-                  ></input>
+                  <label></label>
+                  <select value={category} onChange={handleSelect}>
+                    <option value="選択">選択する</option>
+                    <option value="家具">家具</option>
+                    <option value="食器">食器</option>
+                    <option value="美術品">美術品</option>
+                    <option value="雑貨">雑貨</option>
+                  </select>
                 </div>
                 <label htmlFor="price">価格（税込）</label>
                 <div>

@@ -38,7 +38,9 @@
   width: 100%;
   gap: 2rem;
 }
-
+.ProductDetailedCard .product-details-right {
+  width: 50%;
+}
 .ProductDetailedCard .product-details-right table{
   border-bottom: 1px solid black;
   width: 100%;

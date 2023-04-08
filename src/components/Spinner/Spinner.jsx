@@ -1,8 +1,11 @@
-import React from 'react'
+const spinner =
+  'https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m3/react-lists/spinner.gif'
 
-const Spinner = () => {
+function Spinner() {
   return (
-    <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <div className="Spinner">
+      <img src={spinner} alt="loading spinner" />
+    </div>
   )
 }
 
