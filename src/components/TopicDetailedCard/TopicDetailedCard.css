@@ -1,0 +1,44 @@
+/*.TopicDetailedCard */
+.TopicDetailedCard {
+  margin: 0 auto;
+  padding: 0;
+  background-color: transparent;
+  width: 100vw;
+}
+.TopicDetailedCard .container {
+  margin: 0 auto;
+  width: 90%;
+}
+
+/* Edit-button & Delete-button */
+.TopicDetailedCard .btns-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5.5rem;
+}
+.TopicDetailedCard .btns-container .leftarrow-icon {
+  font-size: 1.2rem;
+  font-family: var(--body-font-sawarabi);
+  vertical-align: bottom;
+}
+.TopicDetailedCard .btn-block {
+  color:#ffffff;
+  background-color: var(--color-blue);
+  margin-left: 1rem;
+}
+.TopicDetailedCard .btn-block:hover {
+  background-color: gray;
+  border-color: gray;
+}
+.topic-details-container picture {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.topic-details-container img {
+  width: 500px;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}

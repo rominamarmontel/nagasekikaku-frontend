@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CreditCard from './CreditCard/CreditCard'
-import PayPal from './PayPal/PayPal'
+// import PayPal from './PayPal/PayPal'
 
 const PaymentMethod = () => {
   const [paymentMethod, setPaymentMethod] = useState('')
@@ -93,7 +93,7 @@ const PaymentMethod = () => {
           </div>
         </div>
         {paymentMethod === 'creditCard' && <CreditCard onOrderSubmit={handleOrderSubmit} />}
-        {paymentMethod === 'paypal' && <PayPal handleSubmit={handleSubmit} orderDetails={orderDetails} />}
+        {/* {paymentMethod === 'paypal' && <PayPal handleSubmit={handleSubmit} orderDetails={orderDetails} />} */}
       </div>
     </div>
   )

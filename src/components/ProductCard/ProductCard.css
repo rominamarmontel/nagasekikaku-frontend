@@ -1,19 +1,26 @@
-.ProductCard {
-  margin-bottom: 3rem;
+/* ProductCard */
+.productCard {
+  width: 90%;
   margin: 0 auto;
-  padding-bottom: 5rem;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.productCard .name {
+  font-family: var(--body-font-sawarabi);
+  font-weight: normal;
+  font-size: .9rem;
+  padding-top: 1rem; 
+}
+.productCard .price {
+  font-size: .8rem;
+  color: var(--color-primary-dark);
+  padding-bottom: 1rem;
 }
 .ProductCard .container{
   width: 100%;
-}
-.ProductCard .name {
-  font-size: 1.3rem;
-  padding-bottom: .5rem;
-}
-.ProductCard .price {
-  color: var(--color-red);
-  font-size: 1rem;
-  font-weight: 700;
 }
 .ProductCard picture {
   width: 100%;
@@ -21,8 +28,9 @@
   object-fit: contain;
 }
 .ProductCard picture img {
-  width: auto;
-  height: 180px;
+  width: 295px;
+  height: 295px;
+  object-fit: cover;
   display: block;
   opacity: 1;
   transition: .3s;

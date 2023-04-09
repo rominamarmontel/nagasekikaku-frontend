@@ -31,7 +31,7 @@ const ProductEditForm = (props) => {
         setDescription(res.data.oneProduct.description);
       })
       .catch((e) => console.error(e));
-  }, []);
+  }, [productId]);
 
   //Click to valid your edition
   const editHandler = async (event) => {

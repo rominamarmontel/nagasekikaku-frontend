@@ -21,6 +21,7 @@ import FormAddAddress from "./pages/ProfilePage/Forms/FormAddAddress";
 
 import ProductCreate from './pages/ProductCreate/ProductCreate'
 import TopicCreate from './pages/TopicCreate/TopicCreate'
+import TopicDetails from "./pages/TopicDetails/TopicDetails";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 
 import Cart from "./pages/Cart/Cart";
@@ -38,6 +39,7 @@ function App() {
           <Route path="/store" element={<Store />} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/topic" element={<Topic />} />
+          <Route path="/topics/:id" element={<TopicDetails />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
 

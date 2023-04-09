@@ -12,8 +12,14 @@
 /* Edit-button & Delete-button */
 .ProductDetailedCard .btns-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   height: 2rem;
+}
+.ProductDetailedCard .btns-container .leftarrow-icon {
+  font-size: 1.2rem;
+  font-family: var(--body-font-sawarabi);
+  vertical-align: bottom;
 }
 .ProductDetailedCard .btn-block {
   color:#ffffff;
@@ -26,6 +32,13 @@
 }
 
 /* main container */
+.ProductDetailedCard .product-details-right .h2 {
+  font-family: var(--body-font-sawarabi);
+}
+.ProductDetailedCard .product-details-right p {
+  font-family: var(--body-font-sawarabi-gothic);
+  font-size: 1rem;
+}
 .ProductDetailedCard .product-details {
   display: flex;
   flex-direction: column;
@@ -36,7 +49,7 @@
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  gap: 2rem;
+  gap: 5rem;
 }
 .ProductDetailedCard .product-details-right {
   width: 50%;

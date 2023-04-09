@@ -2,31 +2,64 @@
   margin: 0 auto;
   padding: 0;
   background-color: transparent;
-  width: 80vw;
+  width: 100vw;
+}
+.Store .container {
+  margin: 0 auto;
+  max-width: 100%;
 }
 .Store .title {
+  background-color: var(--color-blue);
+}
+.Store .title-container {
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2rem;
-  position: relative;
-  margin-bottom: 1rem;
 }
-.Store .store-title {
-  position: absolute;
-  right:500px;
-  top: -15px;
-  text-align: center;
-}
-.Store .title div{
+.Store .title-container ul {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  color: #ffffff;
+  gap: 2rem;
+  padding-left: 22px;
 }
+
+/* Search */
+.Store .Search {
+  display: flex;
+  align-items: center;
+}
+.Store .Search .Search-form {
+  position: relative;
+}
+#search-keyword {
+  outline: none;
+  width: 15rem;
+  height: 2rem;
+}
+#search-keyword {
+  border: 2px solid black;
+  padding: .5rem 0 .5rem 1.8rem;
+  }
+.search-icon {
+  position: absolute;
+  top: 1.3rem;
+  left: .5rem;
+  color: var(--color-primary-light);
+  z-index: 1;
+}
+.Search input {
+  margin-top: .8rem;
+}
+
+/* Create Button */
 .Store .btn-product-create {
   margin-right: 15rem;
-  color:#ffffff;
-  background-color: var(--color-blue);
+  background-color: #ffffff;
   padding: 0.6em 1em;
   border-radius: 3px;
   font-size: .8em;
@@ -34,23 +67,46 @@
 .Store .btn-product-create:hover {
   background-color: gray;
   border-color: gray;
+  color: #ffffff;
 }
-.productCard {
-  margin: 0 5rem;
+
+/* ProductCard */
+/* .Store .productCard {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 2rem;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: calc(20% - 11.7rem);
+  gap: 10px;
 }
-
-
-/* News-banner */
-/* バナー本体 */
-.Store .news-banner {
-  display: block;
-  height: 30px;
+.Store .productCard .name {
+  font-family: var(--body-font-sawarabi);
+  font-weight: normal;
+  font-size: .9rem;
+  padding-top: 1rem; 
+}
+.Store .productCard .price {
+  font-size: .8rem;
+  color: var(--color-primary-dark);
+  padding-bottom: 1rem;
+}
+.Store .ProductCard .container{
   width: 100%;
-  overflow: hidden;
-  border-bottom: 1px solid var(--color-line-box);
-  border-top: 1px solid var(--color-line-box);
-  margin-bottom: 3rem;
 }
+.Store .ProductCard picture {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.Store .ProductCard picture img {
+  width: 295px;
+  height: 295px;
+  object-fit: cover;
+  display: block;
+  opacity: 1;
+  transition: .3s;
+}
+.Store .ProductCard picture img:hover {
+  opacity: 0.5;
+} */

@@ -1,13 +1,11 @@
 import React from 'react';
-import './Search.css'
 import { FaSearch } from 'react-icons/fa'
 
 function Search(props) {
   return (
     <>
       <div className='Search'>
-        <form onSubmit={props.handleSearch}>
-          <FaSearch className='search-icon' />
+        <form onSubmit={props.handleSearch} className='Search-form'>
           <input
             id="search-keyword"
             value={props.searchKeyword}
@@ -15,6 +13,7 @@ function Search(props) {
             placeholder='Search'
             onChange={props.handleInputChange}
           />
+          <FaSearch className='search-icon' />
         </form>
       </div>
     </>

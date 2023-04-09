@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import "./ProductCard.css"
+import './ProductCard.css'
 
 const ProductCard = (props) => {
   const product = props.product
@@ -12,7 +12,7 @@ const ProductCard = (props) => {
             <img src={product.image} alt={product.name} />
           </picture>
           <div>
-            <p>{product.name}</p>
+            <p className='name'>{product.name}</p>
           </div>
         </Link>
         <div>

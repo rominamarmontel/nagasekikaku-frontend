@@ -52,21 +52,21 @@ const Store = () => {
       <div className="Store">
         <div className="container">
           <div className="title">
-            <div>
-              {user && user.isAdmin && <Link to={'/admin/products/create'} className='btn-product-create'>新規作成</Link>}
-            </div>
-            <div className="store-title">
-              <h2>オンラインストア</h2>
-              <h5>Kanraku Selection</h5>
-            </div>
-            <div>
-              <Search handleInputChange={handleInputChange} handleSearch={handleSearch} />
+            <div className="title-container">
+              <ul>
+                <li>全商品</li>
+                <li>家具</li>
+                <li>食器</li>
+                <li>美術品</li>
+                <li>雑貨</li>
+                <li>{user && user.isAdmin && <Link to={'/admin/products/create'} className='btn-product-create'>新規作成</Link>}</li>
+              </ul>
+              <div>
+                <Search handleInputChange={handleInputChange} handleSearch={handleSearch} />
+              </div>
             </div>
           </div>
-          <div className="news-banner">
-            <div className="news-banner__content">
-            </div>
-          </div>
+
           <div className="productCard">
             {filteredList.map((product) => {
               return <ProductCard key={product._id} product={product} />;

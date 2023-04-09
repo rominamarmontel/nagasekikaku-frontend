@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import "./ProductDetailedCard.css";
 import myApi from "../../service/service";
 import { AuthContext } from "../../context/AuthContext";
 import ProductEditForm from "../ProductEditForm/ProductEditForm";
-import { BiCaretRight, BiCaretLeft } from 'react-icons/bi'
+import { BiCaretRight, BiCaretLeft, BiLeftArrowAlt } from 'react-icons/bi'
 import SwiperCard from "../SwiperCard/SwiperCard";
 
 
@@ -62,7 +62,7 @@ const ProductDetailedCard = () => {
   }
   //Click to delete a product
   const deleteHandler = async (event) => {
-    event.preventDefault;
+    event.preventDefault();
     setDeleteIsOn(!deleteIsOn);
     const url = `/products/${productId}/`;
     try {
@@ -78,16 +78,21 @@ const ProductDetailedCard = () => {
     <div className="ProductDetailedCard">
       <div className="container">
         <div className="btns-container">
-          {user && user.isAdmin && (
-            <button className="btn-block" type="button" onClick={editHandler}>
-              編集する
-            </button>
-          )}
-          {user && user.isAdmin && (
-            <button className="btn-block" type="button" onClick={deleteHandler}>
-              削除する
-            </button>
-          )}
+          <p>
+            <Link to='/store'><BiLeftArrowAlt className="leftarrow-icon" />Back</Link>
+          </p>
+          <div>
+            {user && user.isAdmin && (
+              <button className="btn-block" type="button" onClick={editHandler}>
+                編集する
+              </button>
+            )}
+            {user && user.isAdmin && (
+              <button className="btn-block" type="button" onClick={deleteHandler}>
+                削除する
+              </button>
+            )}
+          </div>
         </div>
         {editIsOn ? (
           <ProductEditForm />
@@ -113,7 +118,7 @@ const ProductDetailedCard = () => {
                     <tr>
                       <td></td>
                       <td>
-                        <h5 className="h5">{product.category}</h5>
+                        <p>{product.category}</p>
                       </td>
                     </tr>
                     <tr>
@@ -124,7 +129,7 @@ const ProductDetailedCard = () => {
                     </tr>
                     <tr>
                       <td>
-                        <label htmlFor="brand"><h4>ブランド名：</h4></label>
+                        <label htmlFor="brand"><p>ブランド名：</p></label>
                       </td>
                       <td>
                         <p className="brand">{product.brand}</p>
@@ -132,10 +137,10 @@ const ProductDetailedCard = () => {
                     </tr>
                     <tr>
                       <td>
-                        {" "}<h4>
+                        {" "}<p>
                           {product.countInStock > 0
                             ? `在庫：`
-                            : `在庫なし：`}</h4>
+                            : `在庫なし：`}</p>
                       </td>
                       <td>
                         <p className="countInStock">
@@ -148,9 +153,9 @@ const ProductDetailedCard = () => {
                     </tr>
                     <tr>
                       <td>
-                        <label htmlFor="qty"><h4>数量：</h4></label>
+                        <label htmlFor="qty"><p>数量：</p></label>
                       </td>
-                      <td className="Counter">
+                      <td className="Counter"><p>
                         <button onClick={() => {
                           if (qty > 0) {
                             setQty(qty - 1);
@@ -160,6 +165,7 @@ const ProductDetailedCard = () => {
                             setQty(qty + 1);
                           }
                         }}><BiCaretRight className="right-icon" /></button>
+                      </p>
                       </td>
                     </tr>
                   </tbody>
