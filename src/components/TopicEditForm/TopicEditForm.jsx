@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import './TopicEditForm.css'
 import myApi from '../../service/service'
 
@@ -9,6 +9,7 @@ const TopicEditForm = (props) => {
   const [description, setDescription] = useState("");
   const [imageFile, setImageFile] = useState('');
   const [topic, setTopic] = useState({});
+  const [categoryTopic, setCategoryTopic] = useState('選択')
   const navigate = useNavigate();
   const params = useParams();
   const topicId = params.id;
@@ -20,6 +21,7 @@ const TopicEditForm = (props) => {
       .then((res) => {
         setTopic(res.data.oneTopic);
         setTitle(res.data.oneTopic.title);
+        setCategoryTopic(res.data.oneTopic.categoryTopic)
         setDescription(res.data.oneTopic.description);
       })
       .catch((e) => console.error(e));
@@ -38,6 +40,7 @@ const TopicEditForm = (props) => {
       }
       formData.append("title", title);
       formData.append("description", description);
+      formData.append('categoryTopic', categoryTopic)
 
       const res = await myApi.patch(`/topics/${topicId}`, formData);
       navigate(`/topic`)
@@ -47,7 +50,7 @@ const TopicEditForm = (props) => {
   };
   return (
     <>
-      <div className="ProductEditForm">
+      <div className="TopicEditForm">
         <div className="container">
           <div className="title">
             <h2>商品の編集</h2>
@@ -64,6 +67,15 @@ const TopicEditForm = (props) => {
                     id="title"
                     onChange={(event) => setTitle(event.target.value)}
                   ></input>
+                </div>
+                <div>
+                  <label htmlFor="edit-category">カテゴリー</label>
+                  <select value={categoryTopic} onChange={(event) => setCategoryTopic(event.target.value)}>
+                    <option value="選択">選択</option>
+                    <option value="イベント">イベント</option>
+                    <option value="商品情報">商品情報</option>
+                    <option value="コラム">コラム</option>
+                  </select>
                 </div>
                 <div>
                   <label htmlFor="edit-image">トピック画像</label>
@@ -90,8 +102,8 @@ const TopicEditForm = (props) => {
               </div>
             </div>
           </form>
-        </div>
-      </div>
+        </div >
+      </div >
     </>
   )
 };

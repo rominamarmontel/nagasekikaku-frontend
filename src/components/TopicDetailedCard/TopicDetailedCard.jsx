@@ -6,6 +6,7 @@ import { BiLeftArrowAlt } from 'react-icons/bi'
 import TopicEditForm from "../TopicEditForm/TopicEditForm";
 import ConvertDate from "../Convertdate/Convertdate";
 import './TopicDetailedCard.css'
+import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const TopicDetailedCard = () => {
   const [editIsOn, setEditIsOn] = useState(false);
@@ -17,6 +18,7 @@ const TopicDetailedCard = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState('')
   const [image, setImage] = useState('')
+  const [categoryTopic, setCategoryTopic] = useState('')
   const [updateAt, setUpdateAt] = useState('')
   const [description, setDescription] = useState('')
 
@@ -27,6 +29,7 @@ const TopicDetailedCard = () => {
       .then((res) => {
         setTopic(res.data.oneTopic);
         setTitle(res.data.oneTopic.title);
+        setCategoryTopic(res.data.oneTopic.categoryTopic)
         setImage(res.data.oneTopic.image);
         setUpdateAt(res.data.oneTopic.updateAt);
         setDescription(res.data.oneTopic.description);
@@ -56,19 +59,30 @@ const TopicDetailedCard = () => {
       <div className="container">
         <div className="btns-container">
           <p>
-            <Link to='/topic'><BiLeftArrowAlt className="leftarrow-icon" />Back</Link>
+            <Link to='/topic' style={{ display: editIsOn ? 'none' : 'block' }}><BiLeftArrowAlt className="leftarrow-icon" />Back</Link>
           </p>
-          <div>
-            {user && user.isAdmin && (
-              <button className="btn-block" type="button" onClick={editHandler}>
-                編集する
-              </button>
-            )}
-            {user && user.isAdmin && (
-              <button className="btn-block" type="button" onClick={deleteHandler}>
-                削除する
-              </button>
-            )}
+          <div className="btns-box">
+            <div>
+              {user && user.isAdmin && (
+                <button className="btn-block" type="button" onClick={editHandler} style={{ display: editIsOn ? 'block' : 'none' }}>
+                  キャンセル
+                </button>
+              )}
+            </div>
+            <div>
+              {user && user.isAdmin && (
+                <button className="btn-block" type="button" onClick={editHandler} style={{ display: editIsOn ? 'none' : 'block' }}>
+                  編集する
+                </button>
+              )}
+            </div>
+            <div>
+              {user && user.isAdmin && (
+                <button className="btn-block" type="button" onClick={deleteHandler}>
+                  削除する
+                </button>
+              )}
+            </div>
           </div>
         </div>
         {editIsOn ? (
@@ -77,14 +91,25 @@ const TopicDetailedCard = () => {
           <>
             <div className="topic-details-container">
               <div className="topic-details">
+                <div className="topic-details-right">
+                  <div className="topic-details-date">
+                    <p><ConvertDate convertDate={topic.updatedAt}></ConvertDate></p>
+                    <p className="categoryTopic">{topic.categoryTopic}</p>
+                  </div>
+                  <div className="topic-details-title">
+                    <h2 className="h2">{topic.title}</h2>
+                    <ul className="sns-icons">
+                      <li><FaTwitter /></li>
+                      <li><FaYoutube /></li>
+                      <li><FaInstagram /></li>
+                      <li><FaFacebook /></li>
+                    </ul>
+                  </div>
+                </div>
                 <picture>
                   <img src={topic.image} alt={topic.name} />
                 </picture>
-              </div>
-              <div className="topic-details-right">
-                <h2 className="h2">{topic.title}</h2>
-                <p><ConvertDate convertDate={topic.updatedAt}></ConvertDate></p>
-                <p>{topic.description}</p>
+                <p className='topic-description'>{topic.description}</p>
               </div>
             </div>
           </>

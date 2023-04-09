@@ -12,7 +12,10 @@ const TopicCard = (props) => {
           <img src={topic.image} alt={topic.title} />
         </picture>
         <div className='title-topic'>
-          <p className='topic-date'><ConvertDate convertDate={topic.updatedAt}></ConvertDate></p>
+          <div>
+            <p className='topic-date'><ConvertDate convertDate={topic.updatedAt}></ConvertDate></p>
+            <p className='categoryTopicEvent'>{topic.categoryTopic}</p>
+          </div>
           <p className='topic-title'>{topic.title}</p>
         </div>
       </Link>

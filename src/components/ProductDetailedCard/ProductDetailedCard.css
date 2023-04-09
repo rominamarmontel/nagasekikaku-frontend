@@ -10,6 +10,9 @@
 }
 
 /* Edit-button & Delete-button */
+.ProductDetailedCard .btns-container .btns-box {
+  display: flex;
+}
 .ProductDetailedCard .btns-container {
   display: flex;
   justify-content: space-between;

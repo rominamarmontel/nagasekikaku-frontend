@@ -1,0 +1,26 @@
+.PagenateTopicDetails {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+.previousPage-button, .nextPage-button {
+  border: none;
+  background-color: transparent;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+.previousPage-button:hover, .nextPage-button:hover {
+  background-color: transparent;
+  color: gray;
+}
+.previousPage-button .chevronLeft-icon {
+  color: var(--color-primary-light);
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+.nextPage-button .chevronRight-icon {
+  color: var(--color-primary-light);
+  font-size: 1rem;
+  margin-left: 1rem;
+}

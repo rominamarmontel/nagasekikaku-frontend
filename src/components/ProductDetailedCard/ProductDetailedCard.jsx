@@ -79,19 +79,30 @@ const ProductDetailedCard = () => {
       <div className="container">
         <div className="btns-container">
           <p>
-            <Link to='/store'><BiLeftArrowAlt className="leftarrow-icon" />Back</Link>
+            <Link to='/store' style={{ display: editIsOn ? 'none' : 'block' }}><BiLeftArrowAlt className="leftarrow-icon" />Back</Link>
           </p>
-          <div>
-            {user && user.isAdmin && (
-              <button className="btn-block" type="button" onClick={editHandler}>
-                編集する
-              </button>
-            )}
-            {user && user.isAdmin && (
-              <button className="btn-block" type="button" onClick={deleteHandler}>
-                削除する
-              </button>
-            )}
+          <div className="btns-box">
+            <div>
+              {user && user.isAdmin && (
+                <button className="btn-block" type="button" onClick={editHandler} style={{ display: editIsOn ? 'block' : 'none' }}>
+                  キャンセル
+                </button>
+              )}
+            </div>
+            <div>
+              {user && user.isAdmin && (
+                <button className="btn-block" type="button" onClick={editHandler} style={{ display: editIsOn ? 'none' : 'block' }}>
+                  編集する
+                </button>
+              )}
+            </div>
+            <div>
+              {user && user.isAdmin && (
+                <button className="btn-block" type="button" onClick={deleteHandler}>
+                  削除する
+                </button>
+              )}
+            </div>
           </div>
         </div>
         {editIsOn ? (

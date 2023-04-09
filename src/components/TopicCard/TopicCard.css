@@ -17,7 +17,25 @@
   font-size: .8rem;
   color: var(--color-primary-dark);
   padding-bottom: 1rem;
-  background-color: #ffffff;
+}
+.topicCard .title-topic div {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+.topicCard .categoryTopicEvent {
+  background-color: var(--color-red);
+  color: #ffffff;
+  padding: .2rem .5rem;
+  font-size: .7rem;
+  border-radius: 3px;
+}
+.topicCard .categoryTopicEtc {
+  background-color: var(--color-blue);
+  color: #ffffff;
+  padding: .2rem .5rem;
+  font-size: .7rem;
+  border-radius: 3px;
 }
 .TopicCard picture {
   width: 100%;

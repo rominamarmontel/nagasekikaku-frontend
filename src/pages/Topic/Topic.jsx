@@ -7,12 +7,16 @@ import { AuthContext } from "../../context/AuthContext";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import Spinner from '../../components/Spinner/Spinner'
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
+import PagenateTopicList from "../../components/Pagenate/PagenateTopicList";
 
 const Topic = () => {
-  const [topics, setTopics] = useState(null)
+  const [topics, setTopics] = useState(null);
   const [createIsOn, setCreateIsOn] = useState(false);
-  const isAdmin = true
-  const { user } = useContext(AuthContext)
+  const isAdmin = true;
+  const { user, currentTopics } = useContext(AuthContext);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const topicsPerPage = 8;
 
   useEffect(() => {
     const url = `/topics`;
@@ -33,6 +37,18 @@ const Topic = () => {
     { label: "HOME", link: "/" },
     { label: "お知らせ", link: "/topic", active: true },
   ];
+
+  const paginate = (pageNumber, topics) => {
+    const startIndex = (pageNumber - 1) * topicsPerPage;
+    const endIndex = startIndex + topicsPerPage;
+    return topics.slice(startIndex, endIndex);
+  };
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const renderedTopics = paginate(currentPage, topics);
   return (
     <>
       <div>
@@ -56,10 +72,16 @@ const Topic = () => {
             </div>
           </div>
           <div className="topicCard">
-            {topics.map((topic) => {
+            {renderedTopics.map((topic) => {
               return <TopicCard key={topic._id} topic={topic} />;
             })}
           </div>
+          <PagenateTopicList
+            topics={topics}
+            currentPage={currentPage}
+            itemsPerPage={topicsPerPage}
+            onPageChange={handlePageChange}
+          />
         </div>
       </div>
     </>

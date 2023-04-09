@@ -4,6 +4,12 @@
   border: 1px solid black;
   color: black;
 }
+.Navbar .logout:hover {
+  padding: 0.6em 1em;
+  background-color: var(--color-primary-light);
+  border: 1px solid var(--color-primary-light);
+  color: #fff;
+}
 .account-icon, .cart-icon {
   font-size: 1.5rem;
 }

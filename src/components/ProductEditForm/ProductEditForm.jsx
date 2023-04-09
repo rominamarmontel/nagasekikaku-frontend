@@ -87,16 +87,15 @@ const ProductEditForm = (props) => {
                     onChange={(event) => setBrand(event.target.value)}
                   />
                 </div>
-                <label htmlFor="edit-category">カテゴリー</label>
+                <label htmlFor="category">カテゴリー</label>
                 <div>
-                  <input
-                    name="category"
-                    value={category}
-                    id="category"
-                    onChange={(event) =>
-                      setCategory(event.target.value)
-                    }
-                  />
+                  <select value={category} onChange={(event) => setCategory(event.target.value)}>
+                    <option value="選択">選択する</option>
+                    <option value="家具">家具</option>
+                    <option value="食器">食器</option>
+                    <option value="美術品">美術品</option>
+                    <option value="雑貨">雑貨</option>
+                  </select>
                 </div>
                 <label htmlFor="edit-price">価格（税込）</label>
                 <div>

@@ -8,7 +8,7 @@ const ProductCreate = () => {
   const [name, setName] = useState('')
   const [image, setImage] = useState('')
   const [brand, setBrand] = useState('')
-  const [category, setCategory] = useState('選択')
+  const [category, setCategory] = useState('')
   const [price, setPrice] = useState(0)
   const [countInStock, setCountInStock] = useState(0)
   const [description, setDescription] = useState('')
@@ -85,8 +85,7 @@ const ProductCreate = () => {
                 </div>
                 <label htmlFor="category">カテゴリー</label>
                 <div>
-                  <label></label>
-                  <select value={category} onChange={handleSelect}>
+                  <select value={category} onChange={(event) => setCategory(event.target.value)}>
                     <option value="選択">選択する</option>
                     <option value="家具">家具</option>
                     <option value="食器">食器</option>
