@@ -49,6 +49,7 @@ const Topic = () => {
   };
 
   const renderedTopics = paginate(currentPage, topics);
+
   return (
     <>
       <div>

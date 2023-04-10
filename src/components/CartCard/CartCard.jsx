@@ -23,12 +23,17 @@ const CartCard = (props) => {
   return (
     <>
       <div className='CartCard'>
-        <ul>
-          <li><img src={product.image} alt='{product.name}' width={100} /></li>
-          <li><p>{product.name}</p></li>
-          <li><p>{qty}</p></li>
-          <li><p>{totalPrice.toLocaleString()} 円</p></li>
-        </ul>
+        <table>
+          <tbody>
+            <tr>
+              <td><img src={product.image} alt='{product.name}' width={100} /></td>
+              <td>{product.name}</td>
+              <td>{product.price.toLocaleString()} 円</td>
+              <td>{qty}</td>
+              <td>{totalPrice.toLocaleString()} 円</td>
+            </tr>
+          </tbody>
+        </table>
         <form onSubmit={handleSubmit}>
           <button onClick={() => handleDelete(product._id)} type="button" className="btn-delete">
             <FiX className="batsu-icon" />

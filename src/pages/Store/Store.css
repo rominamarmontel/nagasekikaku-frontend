@@ -6,7 +6,7 @@
 }
 .Store .container {
   margin: 0 auto;
-  max-width: 100%;
+  width: 100%;
 }
 .Store .title {
   background-color: var(--color-blue);

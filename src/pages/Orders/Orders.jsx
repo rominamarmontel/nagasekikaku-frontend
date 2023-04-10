@@ -8,7 +8,7 @@ import Breadcrumb from '../../components/Breadcrumb/Breadcrumb'
 import { BiCart, BiBuildingHouse, BiCheck } from "react-icons/bi";
 import { MdPayment } from "react-icons/md";
 import Spinner from '../../components/Spinner/Spinner'
-
+import { FaArrowRight } from 'react-icons/fa'
 
 const Orders = () => {
   const items = [
@@ -101,39 +101,25 @@ const Orders = () => {
           <div className='final-order-container'>
             <div className='service-box'>
               <div className='user-info'>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td className='first-td'>お名前</td>
-                      <td className='second-td'>{user.username}</td>
-                    </tr>
-                    <tr>
-                      <td>配達先住所</td>
-                      <td>〒{user.shippingAddress.postalCode}</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td>{user.shippingAddress.prefecture}{user.shippingAddress.city}</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td>{user.shippingAddress.town}{user.shippingAddress.addressA}</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td>{user.shippingAddress.addressB}</td>
-                    </tr>
-                    <tr>
-                      <td>電話番号</td>
-                      <td>{user.shippingAddress.phoneNumber}</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <b>配達先情報</b>
+                <ul>
+                  <li>{user.username}</li>
+                  <li>〒{user.shippingAddress.postalCode}</li>
+                  <li>{user.shippingAddress.prefecture}</li>
+                  <li>{user.shippingAddress.city}</li>
+                  <li>{user.shippingAddress.town}</li>
+                  <li>{user.shippingAddress.addressA}</li>
+                  <li>{user.shippingAddress.addressB}</li>
+                  <li>TEL: {user.shippingAddress.phoneNumber}</li>
+                </ul>
               </div>
 
 
               {product && (
                 <div className='validProduct'>
+                  <div className='validProduct-title'>
+                    <b>ご注文の商品</b>
+                  </div>
                   {
                     product.map((item) => {
                       return <CartCard key={item.product._id} item={item} />
@@ -142,27 +128,44 @@ const Orders = () => {
                 </div>
               )}
             </div>
+
+
             <div className='validPayment'>
+              <div>
+                <b>お支払いに関する注意事項</b>
+              </div>
               <div className="order-shokei-section">
-                <span>小計</span>
-                <span>{totalPrice.toLocaleString()} 円</span>
-              </div>
-              <div className="order-soryo-section">
-                <span>送料</span>
-                <span>{shippingFee.toLocaleString()} 円</span>
-              </div>
-              <div className="order-gokei-section">
-                <span>合計</span>
-                <span>{finalPrice.toLocaleString()} 円</span>
-              </div>
-              {user && (
-                <div>
-                  {paymentMethod === 'creditCard' &&
-                    <CreditCardPayment />}
-                  {paymentMethod === 'paypal' &&
-                    <PayPalPayment />}
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>小計</td>
+                      <td>{totalPrice.toLocaleString()} 円</td>
+                    </tr>
+                    <tr>
+                      <td>送料</td>
+                      <td>{shippingFee.toLocaleString()} 円</td>
+                    </tr>
+                    <tr>
+                      <td>お支払い合計</td>
+                      <td>{finalPrice.toLocaleString()} 円</td>
+                    </tr>
+                  </tbody>
+                </table>
+                {user && (
+                  <div>
+                    {paymentMethod === 'creditCard' &&
+                      <CreditCardPayment />}
+                    {paymentMethod === 'paypal' &&
+                      <PayPalPayment />}
+                  </div>
+                )}
+                <div className="process-to-next">
+                  <Link to="/payload">
+                    <button>お支払いを確定する
+                    </button>
+                  </Link>
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </div>

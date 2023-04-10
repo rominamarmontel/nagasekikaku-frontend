@@ -67,12 +67,11 @@
   padding: 3rem;
 }
 /* Credit Card */
-.CreditCard .credit-card-form {
+.CreditCard table {
   margin: 1rem auto 0 auto;
   padding: .5rem 1rem 0 1rem;
   background-color: var(--color-line-box);
 }
-
 .CreditCard .credit-card-form table input {
   width: 400px;
     height: 40px;

@@ -59,60 +59,43 @@
   width: 35px;
   font-weight: normal;
 }
-.Cart .container .cart-details {
-  display:flex;
-  flex-direction: column ;
-  gap: 1rem;
-}
-.Cart .CartCard ul{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-}
-.Cart .CartCard li {
-  width: 120px;
-}
-.Cart .CartCard {
-  display: flex;
-  align-items: center;
-  border: 1px solid var(--color-line-box);
-  background-color: #ffff;
-}
-.Cart .CartCard img {
-  vertical-align:top;
-}
+
+/* Product details*/
 .Cart .service-box {
   display: flex;
   align-self: flex-start;
   justify-content: center;
   gap: 2rem;
 }
-.msg-empty {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 5rem;
+.Cart .cart-details {
+  display:flex;
+  flex-direction: column ;
   gap: 1rem;
 }
-.msg-empty .back-to-store {
-  color: var(--color-red)
+.Cart .cart-details ul {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 150px;
 }
+.Cart .cart-details li:first-child {
+  width: 40%;
+}
+.Cart .cart-details li:nth-child(2) {
+  width: 24%;
+}
+.Cart .cart-details li:nth-child(3) {
+  width: 21%;
+}
+
+/* Order summary */
 .Cart .order-summary {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   color: #1b1b1b;
   line-height: 25px;
   border: 1px solid #1b1b1b;
   padding: 3rem;
-}
-.order-summary button {
-  margin-top: 1rem;
-  background-color: var(--color-red);
-  display: flex;
-  align-items: center;
-  border: none;
 }
 .order-summary .order-shokei-section, .order-soryo-section, .order-gokei-section {
   margin-bottom: 8px;
@@ -128,14 +111,23 @@
   background-color: transparent;
   border: none;
 }
-.text {
+.order-summary .text {
   color: rgb(69, 68, 68);
   font-size: 0.9rem;;
 }
-.batsu-icon {
-  color: rgb(80, 78, 78);
-  font-size: 1rem;
+.order-summary .arrowRight-icon {
+  margin-left: 1rem;
 }
-.hr {
-  border: .5px solid rgb(69, 68, 68);
+
+
+/* Message Empty */
+.msg-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  gap: 1rem;
+}
+.msg-empty .back-to-store {
+  color: var(--color-red)
 }

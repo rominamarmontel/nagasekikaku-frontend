@@ -4,65 +4,14 @@
   background-color: transparent;
   width: 80vw;
 }
-.Orders table {
-  margin: 0 auto;
-}
 .Orders .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin: 0 auto;
 }
 .Orders .final-order-container {
   display: flex;
-  justify-content: space-between;
-}
-
-/* Service-box */
-.Orders .service-box {
-  display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
+  gap: .5rem;
 }
-.Orders .user-info table {
-  background-color: #ffff;
-  border: 1px solid var(--color-line-box);
-  padding: 1rem;
-}
-.Orders .user-info tr {
-  width: 100%;
-}
-.Orders .user-info tr .first-td {
-  width: 140px;
-}
-.Orders .user-info tr .second-td {
-  width: calc(100% - 140px);
-}
-.Orders .CartCard ul{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  background-color: #ffff;
-}
-.Orders .CartCard li {
-  width: 120px;
-}
-.Orders .CartCard {
-  display: flex;
-  align-items: center;
-}
-.Orders .CartCard img {
-  vertical-align:top;
-}
-.Orders .CartCard .btn-delete {
-  display: none;
-}
-.Orders .validProduct {
-  border: 1px solid var(--color-line-box);
-}
-
 /* Ord.Orders Process */
 .Orders .process-checkout {
   width: 100%;
@@ -112,4 +61,76 @@
   height: 35px;
   width: 35px;
   font-weight: normal;
+}
+
+/* Service-box --- User Info */
+.Orders .service-box {
+  display: flex;
+  justify-content: flex-start;
+  gap: .5rem;
+  width: 100%;
+}
+.Orders .user-info {
+  display: flex;
+  flex-direction: column;
+  flex:1 ;
+  background-color: #ffff;
+  border: 1px solid var(--color-line-box);
+  padding: 1rem;
+  width: 100%;
+  text-align: right;
+  min-height: 274px;
+}
+.Orders .user-info b {
+  text-align: left;
+  padding-bottom: 3rem;
+}
+
+/* Service-box --- Product Info */
+.Orders .validProduct {
+  flex: 2;
+  background-color: #ffff;
+  border: 1px solid var(--color-line-box);
+  padding: 1rem;
+  min-height: 274px;
+}
+.Orders .validProduct .CartCard img {
+  vertical-align: bottom;
+}
+.Orders .validProduct .CartCard tr {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.Orders .validProduct .CartCard td {
+  font-size: .8rem;
+  width: 150px;
+  text-align: right;
+}
+.Orders .validProduct .CartCard td:first-child {
+  text-align: left;
+}
+.Orders .validProduct .CartCard td:nth-child(2) {
+  text-align: left;
+}
+.Orders .validProduct .CartCard form {
+  display: none;
+}
+
+/* Valid Payment */
+.Orders .validPayment {
+  border: 1px solid var(--color-line-box);
+  padding: 1rem;
+  min-height: 274px;
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+}
+.Orders .order-shokei-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.Orders .order-shokei-section td {
+  width: 150px;
 }

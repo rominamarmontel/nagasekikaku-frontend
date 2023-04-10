@@ -101,10 +101,18 @@ const Cart = () => {
             <div className="container">
               <div className="service-box">
                 <div className="cart-details">
+                  <ul>
+                    <li>商品名</li>
+                    <li>単価</li>
+                    <li>数量</li>
+                    <li>小計</li>
+                  </ul>
                   {product.map((item) => {
                     return <CartCard key={item.product._id} item={item} onRemove={fetchCart} />
                   })}
                 </div>
+
+
                 <div className="order-summary">
                   <div className="order-shokei-section">
                     <span>小計</span>
@@ -120,8 +128,8 @@ const Cart = () => {
                   </div>
                   <div className="process-to-next">
                     <Link to="/checkout">
-                      <button>商品を購入
-                        <FaArrowRight />
+                      <button>商品を確定する
+                        <FaArrowRight className="arrowRight-icon" />
                       </button>
                     </Link>
                   </div>

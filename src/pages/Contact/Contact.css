@@ -1,0 +1,47 @@
+.Contact {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+  background-color: transparent;
+  width: 100vw;
+}
+.Contact .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 50%;
+}
+.Contact h2 {
+  margin-bottom: 2rem;
+}
+section {
+  margin-bottom: 10rem;
+}
+.Contact .company-profile td {
+  height: 5rem;
+  padding: 0 3rem;
+  border-bottom: 1px solid var(--color-line-box);
+  text-align: left;
+}
+.Contact .contact-form tr {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+.Contact .contact-form table {
+  margin-left: 7rem;
+  margin-bottom: 1rem;
+}
+.Contact .contact-form-text p, .toriatsukai p {
+  padding-bottom: 5rem;
+  line-height: 2rem;
+}
+.Contact .toriatsukai h3 {
+  padding-bottom: 2rem;
+}
+.Contact .send-btns {
+  display: flex;
+  justify-content: center;
+}

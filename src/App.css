@@ -25,6 +25,7 @@
   --body-txt-color-light: #777777;
   --color-orange:rgb(237, 75, 11);
   --color-red:#c0392b;
+  --color-pink:#FF6666;
   --color-blue:#002247;
   --color-line-box:#DDDDDD;
   --color-link-red:#BD100E;
@@ -118,7 +119,7 @@ button {
   font-weight: 600;
   color: #fff;
   font-family: inherit;
-  background-color: var(--color-red);
+  background-color: var(--color-pink);
   cursor: pointer;
   transition: border-color 0.25s;
 }
