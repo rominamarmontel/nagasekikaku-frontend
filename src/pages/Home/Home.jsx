@@ -80,56 +80,60 @@ const Home = () => {
                     {/* {topics.map((topic) => {
                 return <TopicCard key={topic._id} topic={topic} />
               })} */}
-                    <Link to={`/topics/${topics[0]._id}`}>
-                      <div className='topic0'>
-                        <picture>
-                          <img src={topics[0].image} alt={topics[0].title} />
-                        </picture>
-                        <div>
-                          <h3>{topics[0].title}</h3>
-                          <p><ConvertDate convertDate={topics[0].updatedAt} /></p>
-                        </div>
-                        <p>{topics[0].description}</p>
-                      </div>
-                    </Link>
-                    <div className='topic-right'>
-                      <Link to={`/topics/${topics[1]._id}`}>
-                        <div className='topic1'>
-                          <picture>
-                            <img src={topics[1].image} alt={topics[1].title} />
-                          </picture>
-                          <div>
-                            <p className='date'><ConvertDate convertDate={topics[1].updatedAt} /></p>
-                            <h3>{topics[1].title}</h3>
-                            <p className='topic1-description'>{topics[1].description}</p>
+                    {topics && topics.length > 0 && (
+                      <>
+                        <Link to={`/topics/${topics[0]._id}`}>
+                          <div className='topic0'>
+                            <picture>
+                              <img src={topics[0].image} alt={topics[0].title} />
+                            </picture>
+                            <div>
+                              <h3>{topics[0].title}</h3>
+                              <p><ConvertDate convertDate={topics[0].updatedAt} /></p>
+                            </div>
+                            <p>{topics[0].description}</p>
                           </div>
+                        </Link>
+                        <div className='topic-right'>
+                          <Link to={`/topics/${topics[1]._id}`}>
+                            <div className='topic1'>
+                              <picture>
+                                <img src={topics[1].image} alt={topics[1].title} />
+                              </picture>
+                              <div>
+                                <p className='date'><ConvertDate convertDate={topics[1].updatedAt} /></p>
+                                <h3>{topics[1].title}</h3>
+                                <p className='topic1-description'>{topics[1].description}</p>
+                              </div>
+                            </div>
+                          </Link>
+                          <Link to={`/topics/${topics[2]._id}`}>
+                            <div className='topic2'>
+                              <picture>
+                                <img src={topics[2].image} alt={topics[1].title} />
+                              </picture>
+                              <div>
+                                <p className='date'><ConvertDate convertDate={topics[1].updatedAt} /></p>
+                                <h3>{topics[2].title}</h3>
+                                <p className='topic2-description'>{topics[2].description}</p>
+                              </div>
+                            </div>
+                          </Link>
+                          <Link to={`/topics/${topics[3]._id}`}>
+                            <div className='topic3'>
+                              <picture>
+                                <img src={topics[3].image} alt={topics[3].title} />
+                              </picture>
+                              <div>
+                                <p className='date'><ConvertDate convertDate={topics[3].updatedAt} /></p>
+                                <h3>{topics[3].title}</h3>
+                                <p className='topic3-description'>{topics[3].description}</p>
+                              </div>
+                            </div>
+                          </Link>
                         </div>
-                      </Link>
-                      <Link to={`/topics/${topics[2]._id}`}>
-                        <div className='topic2'>
-                          <picture>
-                            <img src={topics[2].image} alt={topics[1].title} />
-                          </picture>
-                          <div>
-                            <p className='date'><ConvertDate convertDate={topics[1].updatedAt} /></p>
-                            <h3>{topics[2].title}</h3>
-                            <p className='topic2-description'>{topics[2].description}</p>
-                          </div>
-                        </div>
-                      </Link>
-                      <Link to={`/topics/${topics[3]._id}`}>
-                        <div className='topic3'>
-                          <picture>
-                            <img src={topics[3].image} alt={topics[3].title} />
-                          </picture>
-                          <div>
-                            <p className='date'><ConvertDate convertDate={topics[3].updatedAt} /></p>
-                            <h3>{topics[3].title}</h3>
-                            <p className='topic3-description'>{topics[3].description}</p>
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>

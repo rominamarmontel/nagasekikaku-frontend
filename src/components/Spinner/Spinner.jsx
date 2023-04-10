@@ -10,7 +10,7 @@ function Spinner() {
     //   <ReactLoading type="spin" className='spin' color={'gray'} height={'1%'} width={'1%'}
     //     style={{ display: 'flex' }} />
     // </div>
-    <div class="loader">Loading...</div>
+    <div className="loader">Loading...</div>
   )
 }
 
