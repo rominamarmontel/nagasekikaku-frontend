@@ -53,6 +53,7 @@ const Cart = () => {
     const numericPrice = Number(formattedPrice.replace(/,/g, ''));
     setTotalPrice(numericPrice);
   }
+
   if (!product) return <Spinner />
 
   return (

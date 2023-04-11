@@ -126,7 +126,7 @@ const CheckOut = () => {
                 <tbody>
                   <tr>
                     <td><label htmlFor='postalCode'>郵便番号</label></td>
-                    <td><input type="text" name='postalCode' id='postalCode' defaultValue={user.shippingAddress.postalCode} onChange={handlePostalCodeChange} placeholder='郵便番号' /></td>
+                    <td><input type="text" name='postalCode' id='postalCode' defaultValue={postalCode} onChange={handlePostalCodeChange} placeholder='郵便番号' /></td>
                   </tr>
                   <tr>
                     <td><label htmlFor='city'>都道府県</label></td>
