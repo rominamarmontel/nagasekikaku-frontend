@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <>
       <div className="Navbar">
-        <NavLink to="/"><img src='/images/logo3.png' alt='logo_yoko' width={600} /></NavLink>
+        <NavLink to="/"><img src='https://res.cloudinary.com/dyu65fpse/image/upload/v1681581180/logo3_jrxza9.png' alt='logo_yoko' width={600} /></NavLink>
         <NavLink to="/store">オンラインストア</NavLink>
         <NavLink to="/topic">お知らせ</NavLink>
         <NavLink to="/about">歓楽宝斎とは</NavLink>

@@ -42,16 +42,16 @@ const Home = () => {
               <input type="radio" name="radio-btn" id="radio4" />
 
               <div className="slide first">
-                <img src="/images/chris-barbalis-LBnCbaWBeDI-unsplash.jpg" alt="picture1" />
+                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/v1681581068/chris-barbalis-LBnCbaWBeDI-unsplash_ydliv3.jpg" alt="picture1" />
               </div>
               <div className="slide">
-                <img src="/images/s-tsuchiya-OHkUl23cmPI-unsplash.jpg" alt="picture2" />
+                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/v1681581118/s-tsuchiya-OHkUl23cmPI-unsplash_axxtkr.jpg" alt="picture2" />
               </div>
               <div className="slide">
-                <img src="/images/jase-bloor-oCZHIa1D4EU-unsplash.jpg" alt="picture3" />
+                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/v1681581146/jase-bloor-oCZHIa1D4EU-unsplash_budist.jpg" alt="picture3" />
               </div>
               <div className="slide">
-                <img src="/images/s-tsuchiya-OeCJupSiHjs-unsplash.jpg" alt="picture4" />
+                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/v1681581101/s-tsuchiya-OeCJupSiHjs-unsplash_zqrrb4.jpg" alt="picture4" />
               </div>
               <div className="navigation-auto">
                 <div className="auto-btn1"></div>

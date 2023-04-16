@@ -21,7 +21,6 @@ const ProductCreate = () => {
     event.preventDefault()
     try {
       const formData = new FormData();
-
       formData.append("image", imageFile);
       formData.append("name", name);
       formData.append("brand", brand);
@@ -29,14 +28,16 @@ const ProductCreate = () => {
       formData.append("price", price);
       formData.append("countInStock", countInStock);
       formData.append("description", description);
-
+      console.log('*****', formData.get('image'));
       const productToCreate = { name, image, brand, category, description, price, countInStock }
       const response = await myApi.post('/products/create', formData)
+      console.log(response)
       if (!productToCreate) {
         setMessage('Please enter product information')
       }
       if (response.status === 201) {
         setShowConfetti(true)
+
         setTimeout(() => {
           setShowConfetti(false)
           navigate('/store')
@@ -48,7 +49,6 @@ const ProductCreate = () => {
   }
   const handleSelect = e => {
     setCategory(e.target.value);
-    console.log("selected", e.target.value);
   };
 
   return (
@@ -59,7 +59,7 @@ const ProductCreate = () => {
             <h2>商品の新規作成</h2>
             <h5>【管理者画面】</h5>
           </div>
-          <form onSubmit={handleSubmit}>
+          <form action="/profile" method="post" onSubmit={handleSubmit} enctype="multipart/form-data">
             <div className='form-box'>
               <div>
                 <label htmlFor="name">名前</label>

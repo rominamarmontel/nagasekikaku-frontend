@@ -102,16 +102,18 @@ const Orders = () => {
             <div className='service-box'>
               <div className='user-info'>
                 <b>配達先情報</b>
-                <ul>
-                  <li>{user.username}</li>
-                  <li>〒{user.shippingAddress.postalCode}</li>
-                  <li>{user.shippingAddress.prefecture}</li>
-                  <li>{user.shippingAddress.city}</li>
-                  <li>{user.shippingAddress.town}</li>
-                  <li>{user.shippingAddress.addressA}</li>
-                  <li>{user.shippingAddress.addressB}</li>
-                  <li>TEL: {user.shippingAddress.phoneNumber}</li>
-                </ul>
+                {user.shippingAddress && (
+                  <ul>
+                    <li>{user.username}</li>
+                    <li>〒{user.shippingAddress.postalCode}</li>
+                    <li>{user.shippingAddress.prefecture}</li>
+                    <li>{user.shippingAddress.city}</li>
+                    <li>{user.shippingAddress.town}</li>
+                    <li>{user.shippingAddress.addressA}</li>
+                    <li>{user.shippingAddress.addressB}</li>
+                    <li>TEL: {user.shippingAddress.phoneNumber}</li>
+                  </ul>
+                )}
               </div>
 
 
