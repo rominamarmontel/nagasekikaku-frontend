@@ -70,8 +70,7 @@
   color: #ffffff;
 }
 
-/* ProductCard */
-/* .Store .productCard {
+.Store .productCard {
   width: 90%;
   margin: 0 auto;
   padding-top: 2rem;
@@ -80,6 +79,8 @@
   flex-wrap: wrap;
   gap: 10px;
 }
+
+/* 
 .Store .productCard .name {
   font-family: var(--body-font-sawarabi);
   font-weight: normal;

@@ -1,25 +1,16 @@
 /* ProductCard */
-.productCard {
-  width: 90%;
-  margin: 0 auto;
-  padding-top: 5rem;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.productCard .name {
+.ProductCard .name {
   font-family: var(--body-font-sawarabi);
   font-weight: normal;
   font-size: .9rem;
   padding-top: 1rem; 
 }
-.productCard .price {
+.ProductCard .price {
   font-size: .8rem;
   color: var(--color-primary-dark);
   padding-bottom: 1rem;
 }
-.ProductCard .container{
+.ProductCard .container {
   width: 100%;
 }
 .ProductCard picture {
@@ -34,6 +25,7 @@
   display: block;
   opacity: 1;
   transition: .3s;
+  background-color: #fff; /* 親要素の背景色を指定 */
 }
 .ProductCard picture img:hover {
   opacity: 0.5;

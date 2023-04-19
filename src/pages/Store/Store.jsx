@@ -44,6 +44,7 @@ const Store = () => {
     { label: "HOME", link: "/" },
     { label: "オンラインストア", link: "/store", active: true },
   ];
+
   return (
     <>
       <div>
