@@ -37,7 +37,6 @@ const ProductCreate = () => {
       }
       if (response.status === 201) {
         setShowConfetti(true)
-
         setTimeout(() => {
           setShowConfetti(false)
           navigate('/store')
@@ -59,7 +58,7 @@ const ProductCreate = () => {
             <h2>商品の新規作成</h2>
             <h5>【管理者画面】</h5>
           </div>
-          <form action="/profile" method="post" onSubmit={handleSubmit} enctype="multipart/form-data">
+          <form action="/profile" method="post" onSubmit={handleSubmit} encType="multipart/form-data">
             <div className='form-box'>
               <div>
                 <label htmlFor="name">名前</label>
