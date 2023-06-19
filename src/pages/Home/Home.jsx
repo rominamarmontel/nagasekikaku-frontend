@@ -42,16 +42,16 @@ const Home = () => {
               <input type="radio" name="radio-btn" id="radio4" />
 
               <div className="slide first">
-                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/v1681581068/chris-barbalis-LBnCbaWBeDI-unsplash_ydliv3.jpg" alt="picture1" />
+                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/v1687205224/Hosai/chris-barbalis-LBnCbaWBeDI-unsplash_1_1_l7ia00.jpg" alt="picture1" />
               </div>
               <div className="slide">
-                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/v1681581118/s-tsuchiya-OHkUl23cmPI-unsplash_axxtkr.jpg" alt="picture2" />
+                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/v1687205514/Hosai/s-tsuchiya-OHkUl23cmPI-unsplash_1_1_1_ikpikc.jpg" alt="picture2" />
               </div>
               <div className="slide">
-                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/v1681581146/jase-bloor-oCZHIa1D4EU-unsplash_budist.jpg" alt="picture3" />
+                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/v1687205217/Hosai/jase-bloor-oCZHIa1D4EU-unsplash_1_1_ackpc2.jpg" alt="picture3" />
               </div>
               <div className="slide">
-                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/v1681581101/s-tsuchiya-OeCJupSiHjs-unsplash_zqrrb4.jpg" alt="picture4" />
+                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/v1687205208/Hosai/s-tsuchiya-OeCJupSiHjs-unsplash_1_1_zeunxa.jpg" alt="picture4" />
               </div>
               <div className="navigation-auto">
                 <div className="auto-btn1"></div>
