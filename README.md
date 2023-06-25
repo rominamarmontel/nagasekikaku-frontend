@@ -31,7 +31,7 @@ multer<br>
 <img width="1394" alt="Screenshot 2023-06-22 at 10 08 56" src="https://github.com/rominamarmontel/nagasekikaku-frontend/assets/69083631/e249cde4-af45-4051-8426-edf21bc77785">
 <img width="1395" alt="Screenshot 2023-06-22 at 10 09 41" src="https://github.com/rominamarmontel/nagasekikaku-frontend/assets/69083631/897af22c-ad6c-4310-8f54-bcab1669f379">
 
-## CRUD
+## ADMIN PANEL
 <img width="610" alt="Screenshot 2023-06-22 at 10 53 39" src="https://github.com/rominamarmontel/nagasekikaku-frontend/assets/69083631/e3c8a817-ebf8-4468-8c2c-26e33e5acd61">
 
 ## CART
