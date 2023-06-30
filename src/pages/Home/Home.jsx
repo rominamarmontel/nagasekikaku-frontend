@@ -42,16 +42,16 @@ const Home = () => {
               <input type="radio" name="radio-btn" id="radio4" />
 
               <div className="slide first">
-                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/v1687712917/chris-barbalis-LBnCbaWBeDI-unsplash_2_1_1_g0z8ue.jpg" alt="" />
+                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/w_1257/v1687712917/chris-barbalis-LBnCbaWBeDI-unsplash_2_1_1_g0z8ue.jpg" alt="" style={{ quality: 10 }} />
               </div>
               <div className="slide">
-                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/v1687712933/s-tsuchiya-OHkUl23cmPI-unsplash_2_1_iwwwbt.jpg" alt="" />
+                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/w_1257/v1687712933/s-tsuchiya-OHkUl23cmPI-unsplash_2_1_iwwwbt.jpg" alt="" style={{ quality: 10 }} />
               </div>
               <div className="slide">
-                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/v1687712923/jase-bloor-oCZHIa1D4EU-unsplash_2_1_gmfvuu.jpg" alt="" />
+                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/w_1257/v1687712923/jase-bloor-oCZHIa1D4EU-unsplash_2_1_gmfvuu.jpg" alt="" style={{ quality: 10 }} />
               </div>
               <div className="slide">
-                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/v1687712928/s-tsuchiya-OeCJupSiHjs-unsplash_2_1_eamg2s.jpg" alt="" />
+                <img src="https://res.cloudinary.com/dyu65fpse/image/upload/w_1257/v1687712928/s-tsuchiya-OeCJupSiHjs-unsplash_2_1_eamg2s.jpg" alt="" style={{ quality: 10 }} />
               </div>
               <div className="navigation-auto">
                 <div className="auto-btn1"></div>
