@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { Suspense } from 'react'
 import './Layout.css'
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
+import Spinner from '../../components/Spinner/Spinner'
+
 
 const Layout = () => {
   return (
@@ -12,7 +14,9 @@ const Layout = () => {
           <Navbar />
         </header>
         <main>
-          <Outlet />
+          <Suspense fallback={<Spinner />}>
+            <Outlet />
+          </Suspense>
         </main>
         <footer>
           <Footer />

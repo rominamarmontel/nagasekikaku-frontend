@@ -1,8 +1,8 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-
+import { lazy } from 'react'
 import Layout from "./pages/Layout/Layout";
-import Home from "./pages/Home/Home";
+// import Home from "./pages/Home/Home";
 import Store from "./pages/Store/Store";
 import Topic from "./pages/Topic/Topic";
 import About from "./pages/About/About";
@@ -30,6 +30,7 @@ import Orders from "./pages/Orders/Orders";
 import AdminTop from "./pages/AdminTop/AdminTop";
 import Error from "./pages/Error/Error";
 
+const Home = lazy(() => import('./pages/Home/Home'))
 function App() {
   return (
     <div className="App">
