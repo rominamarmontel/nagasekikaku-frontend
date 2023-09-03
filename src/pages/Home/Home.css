@@ -121,7 +121,7 @@
   display: flex;
   gap: 2rem;
 }
-.topic-right .topic1, .topic-right .topic2 {
+.topic-right .topic1, .topic-right .topic2, .topic-right .topic3 {
   border-bottom: 2px solid rgb(232, 231, 231);
   margin-bottom: 1rem;
 }
