@@ -117,7 +117,7 @@
   width: 100%;
   overflow: hidden;
 }
-.topic-right .topic1, .topic-right .topic2,.topic-right .topic3 {
+.topic-right .topic1, .topic-right .topic2,.topic-right {
   display: flex;
   gap: 2rem;
 }
