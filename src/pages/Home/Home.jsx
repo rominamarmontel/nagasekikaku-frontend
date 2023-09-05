@@ -82,8 +82,8 @@ const Home = () => {
               })} */}
                     {topics && topics.length > 0 && (
                       <>
-                        <Link to={`/topics/${topics[0]._id}`}>
-                          <div className='topic0'>
+                        <div className='topic0'>
+                          <Link to={`/topics/${topics[0]._id}`}>
                             <picture>
                               <img src={topics[0].image} alt={topics[0].title} />
                             </picture>
@@ -92,8 +92,8 @@ const Home = () => {
                               <p><ConvertDate convertDate={topics[0].updatedAt} /></p>
                             </div>
                             <p>{topics[0].description}</p>
-                          </div>
-                        </Link>
+                          </Link>
+                        </div>
                         <div className='topic-right'>
                           <Link to={`/topics/${topics[1]._id}`}>
                             <div className='topic1'>

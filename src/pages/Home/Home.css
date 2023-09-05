@@ -113,13 +113,17 @@
   display: flex;
   gap: 2rem;
 }
+.topic0 {
+  flex:1;
+}
 .topic-right {
   width: 100%;
   overflow: hidden;
+  flex:1;
 }
-.topic-right .topic1, .topic-right .topic2,.topic-right {
+.topic-right .topic1, .topic-right .topic2,.topic-right .topic3 {
   display: flex;
-  gap: 2rem;
+  gap:1em;
 }
 .topic-right .topic1, .topic-right .topic2 {
   border-bottom: 2px solid rgb(232, 231, 231);
